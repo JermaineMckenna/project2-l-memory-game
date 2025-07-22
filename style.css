@@ -13,3 +13,48 @@ body {
     min-height: 100vh;
     background: lightgreen
 }
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background:darkolivegreen;
+    padding: 40px 60px;
+}
+
+h1 {
+    font-size: 3em;
+    color:aliceblue;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    }
+
+.reset {
+    padding: 15px 30px;
+    color:darkolivegreen;
+    background:white;
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600
+}
+
+.reset:focus {
+    color:white;
+    background:darkolivegreen
+}
+
+.game {
+    width: 440px;
+    height: 440px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    }
