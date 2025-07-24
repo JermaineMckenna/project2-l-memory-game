@@ -50,14 +50,12 @@ h1 {
 }
 
 .game {
-    width: 430px;
-    height: 430px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 10px;
     transform-style: preserve-3d;
     perspective: 500px;
     }
+
 .item {
     position: relative;
     width: 100px;
@@ -87,6 +85,36 @@ h1 {
 .boxOpen:after ,
 .boxMatch::after {
     transform: rotateY(180deg);
+}
+
+.game.level-1 {
+    width: 430px;
+    height: 220px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.game.level-2 {
+    width: 430px;
+    height: 400px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.game.level-3 {
+    width: 430px;
+    height: 500px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.game.level-4 {
+    width: 540px;
+    height: 430px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.game.level-5 {
+    width: 650px;
+    height: 500px;
+    grid-template-columns: repeat(6, 1fr);
 }
 
 

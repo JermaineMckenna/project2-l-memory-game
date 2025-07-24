@@ -14,47 +14,94 @@
     <div class="container">
     <h1>Memory Game</h1>
     <div class="game"></div>
-    <button class="reset" onclick="window.location.reload();">Reset Game</button>
+    <button class="reset" onclick="playResetSoundAndReload();">Reset Game</button>
     </div>
     <script>
-     const emojis = ["☺️", "😇", "😍", "🙃", "😎", "👾", "😸", "🐜"];
-  const gameEmojis = [...emojis, ...emojis];
-  const shuffled = gameEmojis.sort(() => Math.random() - 0.5);
+  const flipSound = new Audio('audio/flip.wav');
+  const matchSound = new Audio('audio/match.wav');
+  const resetSound = new Audio('audio/reset.wav');
+  const winSound = new Audio('audio/win.wav');
+  const wrongSound = new Audio('audio/wrong.wav');
 
-  for (let i = 0; i < shuffled.length; i++) {
-    let box = document.createElement('div');
-    box.className = 'item';
-    box.innerHTML = shuffled[i];
-
-    box.onclick = function () {
-    
-      if (this.classList.contains('boxOpen') || this.classList.contains('boxMatch')) {
-        return;
-      }
-
-      this.classList.add('boxOpen');
-      const openBoxes = document.querySelectorAll('.boxOpen');
-
-      if (openBoxes.length === 2) {
-        setTimeout(() => {
-          if (openBoxes[0].innerHTML === openBoxes[1].innerHTML) {
-            openBoxes[0].classList.add('boxMatch');
-            openBoxes[1].classList.add('boxMatch');
-          }
-
-          openBoxes[0].classList.remove('boxOpen');
-          openBoxes[1].classList.remove('boxOpen');
-
-          if (document.querySelectorAll('.boxMatch').length === emojis.length * 2) {
-            alert('You Win!');
-          }
-        }, 500);
-      }
-    };
-
-    document.querySelector('.game').appendChild(box);
+  function playResetSoundAndReload() {
+    resetSound.currentTime = 0;
+    resetSound.play();
+    setTimeout(() => {
+      window.location.reload();
+    }, 300);
   }
-    </script>
 
+  const allEmojis = ["☺️", "😇", "😍", "🙃", "😎", "👾", "😸", "🐜", "🎃", "👻", "🐶", "🍕", "🚀", "🦄", "🐸"];
+  let level = 1;
+
+  function getEmojisForLevel(level) {
+    const pairs = 2 + level * 2; // 
+    return allEmojis.slice(0, pairs);
+  }
+
+  function createBoard(level) {
+    const gameContainer = document.querySelector('.game');
+    gameContainer.innerHTML = '';
+    gameContainer.className = `game level-${level}`;
+
+    const emojis = getEmojisForLevel(level);
+    const gameEmojis = [...emojis, ...emojis];
+    const shuffled = gameEmojis.sort(() => Math.random() - 0.5);
+
+    for (let i = 0; i < shuffled.length; i++) {
+      const box = document.createElement('div');
+      box.className = 'item';
+      box.innerHTML = shuffled[i];
+
+      box.onclick = function () {
+        if (this.classList.contains('boxOpen') || this.classList.contains('boxMatch')) return;
+
+        flipSound.currentTime = 0;
+        flipSound.play();
+        this.classList.add('boxOpen');
+
+        const openBoxes = document.querySelectorAll('.boxOpen');
+
+        if (openBoxes.length === 2) {
+          setTimeout(() => {
+            if (openBoxes[0].innerHTML === openBoxes[1].innerHTML) {
+              openBoxes[0].classList.add('boxMatch');
+              openBoxes[1].classList.add('boxMatch');
+              matchSound.currentTime = 0;
+              matchSound.play();
+            } else {
+              wrongSound.currentTime = 0;
+              wrongSound.play();
+            }
+
+            openBoxes[0].classList.remove('boxOpen');
+            openBoxes[1].classList.remove('boxOpen');
+
+            const matched = document.querySelectorAll('.boxMatch').length;
+            if (matched === gameEmojis.length) {
+              winSound.currentTime = 0;
+              winSound.play();
+
+              setTimeout(() => {
+                if (level < 5) {
+                  alert(`✅ Level ${level} complete! Moving to Level ${level + 1}...`);
+                  level++;
+                  createBoard(level);
+                } else {
+                  alert("🎉 Congratulations! You’ve completed all 5 levels!");
+                }
+              }, 600);
+            }
+          }, 500);
+        }
+      };
+
+      gameContainer.appendChild(box);
+    }
+  }
+
+  
+  createBoard(level);
+</script>
 </body>
 </html>
