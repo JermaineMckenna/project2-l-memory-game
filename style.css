@@ -41,10 +41,11 @@ h1 {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
-    font-weight: 600
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
 }
 
-.reset:focus {
+.reset:hover {
     color:white;
     background:darkolivegreen
 }
@@ -117,4 +118,98 @@ h1 {
     grid-template-columns: repeat(6, 1fr);
 }
 
+#mute-btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  background: white;
+  border: none;
+  cursor: pointer;
+  color: darkolivegreen;
+  margin-top: 10px;
+}
 
+#mute-btn:hover {
+  background: darkolivegreen;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .game {
+    width: 100%;
+    height: auto;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .item {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8em;
+  }
+
+  .reset, #mute-btn {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .container {
+    padding: 30px 40px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .game {
+    gap: 10px;
+  }
+
+  .item {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5em;
+  }
+
+  .reset, #mute-btn {
+    font-size: 1.2em;
+    padding: 12px 25px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    padding: 40px 60px;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  .game {
+    gap: 12px;
+  }
+
+  .item {
+    width: 100px;
+    height: 100px;
+    font-size: 3em;
+  }
+
+  .reset, #mute-btn {
+    font-size: 1.5em;
+    padding: 15px 30px;
+  }
+}
