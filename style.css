@@ -40,6 +40,25 @@ body {
     padding: 40px 60px;
 }
 
+.page-footer {
+  background-color:darkolivegreen;
+  color:greenyellow;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+}
+
+.page-footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.page-footer a:hover {
+  color: #ffffff;
+}
+
 h1 {
     font-size: 3em;
     color:aliceblue;
