@@ -72,6 +72,18 @@ h1 {
     perspective: 500px;
     }
 
+#timer-display {
+    font-size: 1.4em;
+    color: #ffffff;
+    background:greenyellow;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    text-align: center;
+    margin-top: -10px;
+}
+
 .item {
     position: relative;
     width: 100px;
