@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: lightgreen
+    background: lightgreen;
 }
 
 .container {
@@ -69,3 +69,24 @@ h1 {
     background: white;
     transition: 0.25s;
 }
+
+.item.boxOpen {
+    transform: rotateY(180deg);
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:green;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.boxOpen:after ,
+.boxMatch::after {
+    transform: rotateY(180deg);
+}
+
+

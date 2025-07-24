@@ -18,17 +18,42 @@
     </div>
     <script>
      const emojis = ["☺️", "😇", "😍", "🙃", "😎", "👾", "😸", "🐜"];
+  const gameEmojis = [...emojis, ...emojis];
+  const shuffled = gameEmojis.sort(() => Math.random() - 0.5);
 
-     const gameEmojis = [...emojis, ...emojis];
+  for (let i = 0; i < shuffled.length; i++) {
+    let box = document.createElement('div');
+    box.className = 'item';
+    box.innerHTML = shuffled[i];
 
-     const shuffled = gameEmojis.sort(() => Math.random() - 0.5);
+    box.onclick = function () {
+    
+      if (this.classList.contains('boxOpen') || this.classList.contains('boxMatch')) {
+        return;
+      }
 
-     for (let i = 0; i <shuffled.length; i++) {
-     let box = document.createElement('div');
-     box.className = 'item';
-     box.innerHTML =  shuffled[i];
-     document.querySelector('.game').appendChild(box);
-     }
+      this.classList.add('boxOpen');
+      const openBoxes = document.querySelectorAll('.boxOpen');
+
+      if (openBoxes.length === 2) {
+        setTimeout(() => {
+          if (openBoxes[0].innerHTML === openBoxes[1].innerHTML) {
+            openBoxes[0].classList.add('boxMatch');
+            openBoxes[1].classList.add('boxMatch');
+          }
+
+          openBoxes[0].classList.remove('boxOpen');
+          openBoxes[1].classList.remove('boxOpen');
+
+          if (document.querySelectorAll('.boxMatch').length === emojis.length * 2) {
+            alert('You Win!');
+          }
+        }, 500);
+      }
+    };
+
+    document.querySelector('.game').appendChild(box);
+  }
     </script>
 
 </body>
