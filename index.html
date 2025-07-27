@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <script src="script.js"></script>
 
 </head>
 <body>
@@ -37,123 +36,7 @@
     </footer>
   </div>
 
-  <script>
-    const flipSound = new Audio('audio/flip.wav');
-    const matchSound = new Audio('audio/match.wav');
-    const resetSound = new Audio('audio/reset.wav');
-    const winSound = new Audio('audio/win.wav');
-    const wrongSound = new Audio('audio/wrong.wav');
 
-    let soundMuted = false;
-    document.getElementById('mute-btn').addEventListener('click', () => {
-      soundMuted = !soundMuted;
-      const allSounds = [flipSound, matchSound, resetSound, winSound, wrongSound];
-      allSounds.forEach(sound => sound.muted = soundMuted);
-      document.getElementById('mute-btn').textContent = soundMuted ? '🔇 Sound Off' : '🔊 Sound On';
-    });
-
-    function playResetSoundAndReload() {
-      resetSound.currentTime = 0;
-      resetSound.play();
-      setTimeout(() => {
-        window.location.reload();
-      }, 300);
-    }
-
-    let timer;
-    let time = 0;
-    let hasStarted = false;
-
-    function startTimer() {
-      clearInterval(timer);
-      time = 0;
-      document.getElementById('timer').textContent = time;
-      timer = setInterval(() => {
-        time++;
-        document.getElementById('timer').textContent = time;
-      }, 1000);
-    }
-
-    const allEmojis = ["☺️", "😇", "😍", "🙃", "😎", "👾", "😸", "🐜", "🎃", "👻", "🐶", "🍕", "🚀", "🦄", "🐸"];
-    let level = 1;
-
-    function getEmojisForLevel(level) {
-      const pairs = 2 + level * 2;
-      return allEmojis.slice(0, pairs);
-    }
-
-    function createBoard(level) {
-      const gameContainer = document.querySelector('.game');
-      gameContainer.innerHTML = '';
-      gameContainer.className = `game level-${level}`;
-
-      hasStarted = false;
-      time = 0;
-      document.getElementById('timer').innerText = time;
-      clearInterval(timer);
-
-      const emojis = getEmojisForLevel(level);
-      const gameEmojis = [...emojis, ...emojis];
-      const shuffled = gameEmojis.sort(() => Math.random() - 0.5);
-
-      for (let i = 0; i < shuffled.length; i++) {
-        const box = document.createElement('div');
-        box.className = 'item';
-        box.innerHTML = shuffled[i];
-
-        box.onclick = function () {
-          if (this.classList.contains('boxOpen') || this.classList.contains('boxMatch')) return;
-
-          if (!hasStarted) {
-            startTimer();
-            hasStarted = true;
-          }
-
-          flipSound.currentTime = 0;
-          flipSound.play();
-          this.classList.add('boxOpen');
-
-          const openBoxes = document.querySelectorAll('.boxOpen');
-          if (openBoxes.length === 2) {
-            setTimeout(() => {
-              if (openBoxes[0].innerHTML === openBoxes[1].innerHTML) {
-                openBoxes[0].classList.add('boxMatch');
-                openBoxes[1].classList.add('boxMatch');
-                matchSound.currentTime = 0;
-                matchSound.play();
-              } else {
-                wrongSound.currentTime = 0;
-                wrongSound.play();
-              }
-
-              openBoxes[0].classList.remove('boxOpen');
-              openBoxes[1].classList.remove('boxOpen');
-
-              const matched = document.querySelectorAll('.boxMatch').length;
-              if (matched === gameEmojis.length) {
-                winSound.currentTime = 0;
-                winSound.play();
-                clearInterval(timer);
-
-                setTimeout(() => {
-                  if (level < 5) {
-                    alert(`✅ Level ${level} complete in ${time}s! Moving to Level ${level + 1}...`);
-                    level++;
-                    createBoard(level);
-                  } else {
-                    alert(`🎉 All levels complete! Final Time: ${time}s`);
-                  }
-                }, 600);
-              }
-            }, 500);
-          }
-        };
-
-        gameContainer.appendChild(box);
-      }
-    }
-
-    createBoard(level);
-  </script>
+<script src="script.js" defer></script>
 </body>
 </html>

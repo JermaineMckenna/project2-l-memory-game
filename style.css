@@ -1,3 +1,4 @@
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -93,8 +94,7 @@ h1 {
 .game {
     display: grid;
     gap: clamp(6px, 2vw, 12px);
-    transform-style: preserve-3d;
-    perspective: 500px;
+    perspective: 1000px;
     justify-content: center;
 }
 
@@ -136,33 +136,43 @@ h1 {
 }
 
 .item {
-    position: relative;
     width: 100px;
     height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3em;
-    background: white;
-    transition: 0.25s;
+    perspective: 1000px;
 }
 
-.item.boxOpen {
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.item.boxOpen .card,
+.item.boxMatch .card {
     transform: rotateY(180deg);
 }
 
-.item::after {
-    content: '';
+.front,
+.back {
     position: absolute;
-    inset: 0;
-    background: green;
-    transition: 0.25s;
-    transform: rotateY(0deg);
+    width: 100%;
+    height: 100%;
     backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    border-radius: 6px;
 }
 
-.boxOpen:after,
-.boxMatch::after {
+.front {
+    background: green;
+}
+
+.back {
+    background: white;
     transform: rotateY(180deg);
 }
 
@@ -201,6 +211,10 @@ h1 {
     .item {
         width: 60px;
         height: 60px;
+    }
+
+    .front,
+    .back {
         font-size: 1.8em;
     }
 
@@ -232,6 +246,10 @@ h1 {
     .item {
         width: 80px;
         height: 80px;
+    }
+
+    .front,
+    .back {
         font-size: 2.5em;
     }
 
@@ -254,6 +272,10 @@ h1 {
     .item {
         width: 100px;
         height: 100px;
+    }
+
+    .front,
+    .back {
         font-size: 3em;
     }
 
