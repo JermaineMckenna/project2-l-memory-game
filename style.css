@@ -1,9 +1,17 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: lightgreen;
+    overflow-x: hidden;
 }
 
 .page-wrapper {
@@ -16,17 +24,8 @@
     text-align: center;
     margin-top: 10px;
     margin-bottom: 130px;
-    font-family: 'Arial', sans-serif;
     font-size: 1.4rem;
     color: #ffffff;
-    }
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: lightgreen;
 }
 
 .container {
@@ -36,40 +35,47 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 30px;
-    background:darkolivegreen;
+    background: darkolivegreen;
     padding: 40px 60px;
+    max-width: 90vw;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
 }
 
 .page-footer {
-  background-color:darkolivegreen;
-  color:greenyellow;
-  text-align: center;
-  padding: 15px 10px;
-  font-size: 0.9rem;
+    background-color: darkolivegreen;
+    color: greenyellow;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    margin-top: auto;
+    width: 100%;
 }
 
 .page-footer a {
-  color: #ffffff;
-  text-decoration: none;
-  margin: 0 5px;
-  transition: color 0.3s ease;
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
 }
 
 .page-footer a:hover {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 h1 {
     font-size: 3em;
-    color:aliceblue;
+    color: aliceblue;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    }
+    text-align: center;
+}
 
 .reset {
     padding: 15px 30px;
-    color:darkolivegreen;
-    background:white;
+    color: darkolivegreen;
+    background: white;
     border: none;
     font-size: 1.5em;
     letter-spacing: 0.1em;
@@ -80,21 +86,47 @@ h1 {
 }
 
 .reset:hover {
-    color:white;
-    background:darkolivegreen
+    color: white;
+    background: darkolivegreen;
 }
 
 .game {
     display: grid;
-    gap: 10px;
+    gap: clamp(6px, 2vw, 12px);
     transform-style: preserve-3d;
     perspective: 500px;
-    }
+    justify-content: center;
+}
+
+.game.level-1 {
+    grid-template-columns: repeat(4, 1fr);
+    width: 440px;
+}
+
+.game.level-2 {
+    grid-template-columns: repeat(4, 1fr);
+    width: 440px;
+}
+
+.game.level-3 {
+    grid-template-columns: repeat(4, 1fr);
+    width: 440px;
+}
+
+.game.level-4 {
+    grid-template-columns: repeat(5, 1fr);
+    width: 550px;
+}
+
+.game.level-5 {
+    grid-template-columns: repeat(6, 1fr);
+    width: 660px;
+}
 
 #timer-display {
     font-size: 1.4em;
     color: #ffffff;
-    background:greenyellow;
+    background: greenyellow;
     padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -123,139 +155,111 @@ h1 {
     content: '';
     position: absolute;
     inset: 0;
-    background:green;
+    background: green;
     transition: 0.25s;
     transform: rotateY(0deg);
     backface-visibility: hidden;
 }
 
-.boxOpen:after ,
+.boxOpen:after,
 .boxMatch::after {
     transform: rotateY(180deg);
 }
 
-.game.level-1 {
-    width: 430px;
-    height: 220px;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.game.level-2 {
-    width: 430px;
-    height: 400px;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.game.level-3 {
-    width: 430px;
-    height: 500px;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.game.level-4 {
-    width: 540px;
-    height: 430px;
-    grid-template-columns: repeat(5, 1fr);
-}
-
-.game.level-5 {
-    width: 650px;
-    height: 500px;
-    grid-template-columns: repeat(6, 1fr);
-}
-
 #mute-btn {
-  padding: 10px 20px;
-  font-size: 1em;
-  font-weight: bold;
-  background: white;
-  border: none;
-  cursor: pointer;
-  color: darkolivegreen;
-  margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    background: white;
+    border: none;
+    cursor: pointer;
+    color: darkolivegreen;
+    margin-top: 10px;
 }
 
 #mute-btn:hover {
-  background: darkolivegreen;
-  color: white;
+    background: darkolivegreen;
+    color: white;
 }
 
+/* Responsive Styles */
 @media (max-width: 480px) {
-  .container {
-    padding: 20px;
-    gap: 20px;
-  }
+    .container {
+        padding: 20px;
+        gap: 20px;
+    }
 
-  h1 {
-    font-size: 2em;
-    text-align: center;
-  }
+    .page-header {
+        margin-bottom: 40px;
+    }
 
-  .game {
-    width: 100%;
-    height: auto;
-    gap: 8px;
-    justify-content: center;
-  }
+    h1 {
+        font-size: 2em;
+        text-align: center;
+    }
 
-  .item {
-    width: 60px;
-    height: 60px;
-    font-size: 1.8em;
-  }
+    .item {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8em;
+    }
 
-  .reset, #mute-btn {
-    font-size: 1em;
-    padding: 10px 20px;
-  }
+    .reset,
+    #mute-btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .game.level-1,
+    .game.level-2,
+    .game.level-3,
+    .game.level-4,
+    .game.level-5 {
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
-  .container {
-    padding: 30px 40px;
-  }
+    .container {
+        padding: 30px 40px;
+    }
 
-  h1 {
-    font-size: 2.5em;
-  }
+    h1 {
+        font-size: 2.5em;
+    }
 
-  .game {
-    gap: 10px;
-  }
+    .item {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5em;
+    }
 
-  .item {
-    width: 80px;
-    height: 80px;
-    font-size: 2.5em;
-  }
-
-  .reset, #mute-btn {
-    font-size: 1.2em;
-    padding: 12px 25px;
-  }
+    .reset,
+    #mute-btn {
+        font-size: 1.2em;
+        padding: 12px 25px;
+    }
 }
 
 @media (min-width: 1025px) {
-  .container {
-    padding: 40px 60px;
-  }
+    .container {
+        padding: 40px 60px;
+    }
 
-  h1 {
-    font-size: 3em;
-  }
+    h1 {
+        font-size: 3em;
+    }
 
-  .game {
-    gap: 12px;
-  }
+    .item {
+        width: 100px;
+        height: 100px;
+        font-size: 3em;
+    }
 
-  .item {
-    width: 100px;
-    height: 100px;
-    font-size: 3em;
-  }
-
-  .reset, #mute-btn {
-    font-size: 1.5em;
-    padding: 15px 30px;
-  }
+    .reset,
+    #mute-btn {
+        font-size: 1.5em;
+        padding: 15px 30px;
+    }
 }
