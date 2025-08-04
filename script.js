@@ -66,7 +66,38 @@ function createBoard(level) {
       </div>
     `;
 
-    box.onclick = function () {
+    document.addEventListener("DOMContentLoaded", function () {
+  const instructionsBtn = document.getElementById("instructionsBtn");
+  const instructionsPopup = document.getElementById("instructionsPopup");
+  const closePopup = document.getElementById("closePopup");
+  const playGameBtn = document.getElementById("playGameBtn");
+
+  // Show popup when "Instructions" is clicked
+  instructionsBtn.addEventListener("click", function () {
+    instructionsPopup.classList.remove("hidden");
+  });
+
+  // Close popup when "X" is clicked
+  closePopup.addEventListener("click", function () {
+    instructionsPopup.classList.add("hidden");
+  });
+
+  // Close popup when "Play Game" is clicked
+  playGameBtn.addEventListener("click", function () {
+    instructionsPopup.classList.add("hidden");
+    // Optional: start game logic here
+  });
+
+  // Optional: Close popup by clicking outside the box
+  window.addEventListener("click", function (e) {
+    if (e.target === instructionsPopup) {
+      instructionsPopup.classList.add("hidden");
+    }
+  });
+});
+
+
+       box.onclick = function () {
       if (this.classList.contains('boxOpen') || this.classList.contains('boxMatch')) return;
 
       if (!hasStarted) {

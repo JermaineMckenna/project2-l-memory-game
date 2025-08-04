@@ -130,6 +130,54 @@ h1 {
     transform: rotateY(180deg);
 }
 
+.instructions-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .instructions-popup {
+      display: none;
+      position: absolute;
+      top: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 300px;
+      width: 90vw;
+      box-shadow: 0 5px 15px darkolivegreen(0, 0, 0, 0.3);
+      z-index: 1000;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .instructions-wrapper:hover .instructions-popup {
+      display: block;
+    }
+
+    #instructionsBtn {
+      padding: 10px 15px;
+      border: none;
+      background-color: darkolivegreen;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #instructionsBtn:hover {
+      background-color: darkolivegreen;
+    }
+
+    .instructions-popup ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .instructions-popup p {
+      margin-top: 1em;
+    }
+
 .front,
 .back {
     position: absolute;
@@ -229,6 +277,7 @@ h1 {
         font-size: 1.2em;
         padding: 12px 25px;
     }
+    
 }
 
 @media (min-width: 1025px) {
@@ -255,6 +304,54 @@ h1 {
         font-size: 1.5em;
         padding: 15px 30px;
     }
+}
+/* Instructions Hover Popup */
+.instructions-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-popup {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: darkolivegreen;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    z-index: 10;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.instructions-wrapper:hover .hover-popup {
+    display: block;
+}
+
+/* Match "Reset Game" styles */
+#instructionsBtn,
+#playGameBtn {
+    padding: 15px 30px;
+    color: darkolivegreen;
+    background: white;
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+    margin-top: 10px;
+}
+
+#instructionsBtn:hover,
+#playGameBtn:hover {
+    color: white;
+    background: darkolivegreen;
 }
 
 

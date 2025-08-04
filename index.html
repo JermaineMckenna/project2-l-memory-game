@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>BrainMatch: Memory Challenge</title>
+  <title>BrainMatch: Memory Challenge</title>
 
-    <link rel="icon" type="image/png" href="./favicon/memory.png">
-
-    <link rel="stylesheet" href="style.css">
-
+  <link rel="icon" type="image/png" href="./favicon/memory.png" />
+  <link rel="stylesheet" href="style.css" />
 
 </head>
 <body>
-<div class="page-wrapper">
+  <div class="page-wrapper">
     <header class="page-header">
       <h2>Jermaine McKenna | BrainMatch</h2>
     </header>
@@ -21,8 +19,34 @@
     <div class="container">
       <h1>Memory Game</h1>
       <p id="timer-display">⏱ Time: <span id="timer">0</span>s</p>
+
+      <!-- Instructions Button with Hover Popup -->
+      <div class="instructions-wrapper">
+        <button id="instructionsBtn">Instructions</button>
+        <div class="instructions-popup">
+          <h3>How to Play BrainMatch</h3>
+          <ul>
+            <li>🎯 Match all the pairs of cards.</li>
+            <li>🃏 Click two cards to flip them.</li>
+            <li>🔁 If they match, they stay flipped. If not, they flip back.</li>
+            <li>🧠 Use your memory to remember card positions.</li>
+            <li>⏱ Timer starts with your first move.</li>
+            <li>🎮 Complete the game quickly with few mistakes.</li>
+            <li>🔄 Click "Reset Game" to start over.</li>
+            <li>🔊 Use the sound button to toggle audio.</li>
+          </ul>
+          <p>Good luck and have fun!</p>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button id="playGameBtn">Play Game</button>
+      </div>
+
+      <!-- Game Grid -->
       <div class="game"></div>
 
+      <!-- Game Controls -->
       <button class="reset" onclick="playResetSoundAndReload();">Reset Game</button>
       <button id="mute-btn">🔊 Sound On</button>
     </div>
@@ -36,7 +60,6 @@
     </footer>
   </div>
 
-
-<script src="script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
