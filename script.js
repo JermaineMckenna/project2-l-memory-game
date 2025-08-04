@@ -66,38 +66,7 @@ function createBoard(level) {
       </div>
     `;
 
-    document.addEventListener("DOMContentLoaded", function () {
-  const instructionsBtn = document.getElementById("instructionsBtn");
-  const instructionsPopup = document.getElementById("instructionsPopup");
-  const closePopup = document.getElementById("closePopup");
-  const playGameBtn = document.getElementById("playGameBtn");
-
-  // Show popup when "Instructions" is clicked
-  instructionsBtn.addEventListener("click", function () {
-    instructionsPopup.classList.remove("hidden");
-  });
-
-  // Close popup when "X" is clicked
-  closePopup.addEventListener("click", function () {
-    instructionsPopup.classList.add("hidden");
-  });
-
-  // Close popup when "Play Game" is clicked
-  playGameBtn.addEventListener("click", function () {
-    instructionsPopup.classList.add("hidden");
-    // Optional: start game logic here
-  });
-
-  // Optional: Close popup by clicking outside the box
-  window.addEventListener("click", function (e) {
-    if (e.target === instructionsPopup) {
-      instructionsPopup.classList.add("hidden");
-    }
-  });
-});
-
-
-       box.onclick = function () {
+    box.onclick = function () {
       if (this.classList.contains('boxOpen') || this.classList.contains('boxMatch')) return;
 
       if (!hasStarted) {
@@ -151,5 +120,36 @@ function createBoard(level) {
     gameContainer.appendChild(box);
   }
 }
+
+// INSTRUCTIONS POPUP FUNCTIONALITY
+document.addEventListener("DOMContentLoaded", () => {
+  const instructionsBtn = document.getElementById("instructionsBtn");
+  const instructionsPopup = document.getElementById("instructionsPopup");
+  const closePopup = document.getElementById("closePopup");
+  const playGameBtn = document.getElementById("playGameBtn");
+
+  instructionsBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    instructionsPopup.classList.toggle("hidden");
+  });
+
+  closePopup.addEventListener("click", () => {
+    instructionsPopup.classList.add("hidden");
+  });
+
+  playGameBtn.addEventListener("click", () => {
+    instructionsPopup.classList.add("hidden");
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      !instructionsPopup.classList.contains("hidden") &&
+      !instructionsPopup.contains(e.target) &&
+      !instructionsBtn.contains(e.target)
+    ) {
+      instructionsPopup.classList.add("hidden");
+    }
+  });
+});
 
 createBoard(level);
