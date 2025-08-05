@@ -120,7 +120,29 @@ To source the back-ground image used within the main base of the game I used [un
 
 Bugs - 
 
+Experienced a bug on the next level and game completion pop up at the top of the game, the bug was through the level completion pop up which stated details of my github at the very top, just above the level completion message, this bug was showing at the end of every level and also once the game had been completed.
 
+
+
+
+Code Validation - 
+
+CCS code validation.
+
+I used the [W3C Markup validation service](https://jigsaw.w3.org/css-validator/#validate_by_upload) to check the validity of my CSS code.
+
+This passed with no errors found.
+
+![cssvalidator](projectimages/cssvalidator.jpg)
+
+---
+
+HTML code validation
+
+I used the [W3C Markup validation service](https://validator.w3.org/) to check the validity of my HTML. 
+
+From this check it highlighted a few info markers and one key error.
+![htmlerrors](projectimages/htmlerrors.jpg)
 
 
 
