@@ -36,6 +36,29 @@ A user of the site wants to:
 
 ## 🎨 Colour Scheme and Font
 
+The font Arial and Helvetica is what is used for the memory card game site. As one of the key traits of the website is simplicity but catchy at the same time, this font was chosen as it is clear and understandable for all types of users that wish to access the site and play the game. The font sans serif was also used as the fallback in case Arial and Helvetica are not accesible.
+
+![font](projectimages/fonts.jpg)
+
+The colour scheme used in the backgroud of the game is light green. The colour used for different texts in the game varies from a colour of white to different types of green. This type of variety is a good mixture in creativity but also goes well with the layout of the game and the approach went with.
+
+![gfont](projectimages/greenfonts.jpg)
+
+---
+
+## ⭐️ Features
+
+Introduction/Instructions Modal - 
+
+The instructions modal/popup sits on top of the game and is clear and visible to users when they are on the game page, once clicked the popup opens with clear instructions on how to play the game. Inside the popup descriptions on other features the game has it detailed clearly.
+
+![instructionsmodal](projectimages/instructions.jpg)
+
+Game Screen - 
+
+
+
+
 
 
 
