@@ -8,7 +8,7 @@
 
 body {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
@@ -17,45 +17,32 @@ body {
   text-align: center;
 }
 
+/* APPLY the background & styling to .page-wrapper instead of .container */
 .page-wrapper {
+  flex: 1;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.page-header {
-  margin-top: 10px;
-  margin-bottom: 130px;
-  font-size: 1.4rem;
-  color: #ffffff;
-  text-align: center;
-  max-width: 1200px;
-}
-
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 30px;
   padding: 40px 60px;
-  max-width: 90vw;
-  width: 100%;
   box-sizing: border-box;
   border-radius: 12px;
   z-index: 2;
+
   background: url("projectimages/pexels-samandgos-709552.jpg") no-repeat center center;
   background-size: cover;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  position: relative;
 }
 
-.container::before {
+/* Add overlay for darkening background image */
+.page-wrapper::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
@@ -63,9 +50,30 @@ body {
   z-index: 0;
 }
 
-.container > * {
+/* Make sure direct children stay above overlay */
+.page-wrapper > * {
   position: relative;
   z-index: 1;
+}
+
+.page-header {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 1.4rem;
+  color: #ffffff;
+  text-align: center;
+  max-width: 1200px;
+}
+
+.stats {
+  font-size: 1.2rem;
+  margin: 10px 0 15px 0;
+  color: white;
+}
+
+#starRating {
+  color: gold;
+  font-size: 1.2rem;
 }
 
 .page-footer {
@@ -93,14 +101,15 @@ body {
 h1 {
   font-size: 3em;
   color: aliceblue;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.1em;
   text-align: center;
 }
 
 .reset,
 #instructionsBtn,
-#playGameBtn {
+#playGameBtn,
+#mute-btn {
   padding: 15px 30px;
   color: darkolivegreen;
   background: white;
@@ -112,11 +121,13 @@ h1 {
   font-weight: 600;
   transition: background 0.3s, color 0.3s;
   margin-top: 10px;
+  border-radius: 6px;
 }
 
 .reset:hover,
 #instructionsBtn:hover,
-#playGameBtn:hover {
+#playGameBtn:hover,
+#mute-btn:hover {
   color: white;
   background: darkolivegreen;
 }
@@ -128,24 +139,14 @@ h1 {
   justify-content: center;
   width: fit-content;
   margin: 0 auto;
-}
-
-#timer-display {
-  font-size: 1.4em;
-  color: #ffffff;
-  background: greenyellow;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-  text-align: center;
-  margin-top: -10px;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 100px));
 }
 
 .item {
   width: 100px;
   height: 100px;
   perspective: 1000px;
+  cursor: pointer;
 }
 
 .card {
@@ -154,11 +155,14 @@ h1 {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.5s;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .item.boxOpen .card,
 .item.boxMatch .card {
   transform: rotateY(180deg);
+  cursor: default;
 }
 
 .front,
@@ -172,10 +176,12 @@ h1 {
   justify-content: center;
   font-size: 2.5em;
   border-radius: 6px;
+  user-select: none;
 }
 
 .front {
   background: green;
+  box-shadow: inset 0 0 10px #004d00;
 }
 
 .back {
@@ -183,78 +189,6 @@ h1 {
   transform: rotateY(180deg);
 }
 
-#mute-btn {
-  padding: 10px 20px;
-  font-size: 1em;
-  font-weight: bold;
-  background: white;
-  border: none;
-  cursor: pointer;
-  color: darkolivegreen;
-  margin-top: 10px;
-}
-
-#mute-btn:hover {
-  background: darkolivegreen;
-  color: white;
-}
-
-/* Falling Leaf Animation */
-.falling-leaf-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.leaf {
-  position: absolute;
-  width: 40px;
-  animation: fall 6s linear infinite;
-  opacity: 0.8;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(-100px) rotate(0deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0.2;
-  }
-}
-
-/* Game content above falling leaves */
-.game-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Falling Leaves on Sides */
-.falling-leaves.left-leaves,
-.falling-leaves.right-leaves {
-  position: absolute;
-  top: 0;
-  width: 80px;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.falling-leaves.left-leaves {
-  left: 0;
-}
-
-.falling-leaves.right-leaves {
-  right: 0;
-}
-
-/* Instructions Popup */
 .instructions-wrapper {
   position: relative;
   margin-bottom: 20px;
@@ -277,13 +211,104 @@ h1 {
   text-align: left;
 }
 
-.instructions-popup.active {
+.instructions-popup.hidden {
+  display: none;
+}
+
+.instructions-popup:not(.hidden) {
   display: block;
+}
+
+.stats {
+  display: flex;
+  gap: 23px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.stats span {
+  font-weight: bold;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 20px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.falling-leaves {
+  position: fixed;        /* Fix position so leaves fall over page */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;          /* Full viewport height */
+  pointer-events: none;   /* So leaves don't block clicks */
+  overflow: visible;
+  z-index: 10;            /* Above game content */
+}
+
+.leaf {
+  position: absolute;
+  top: -50px;             /* Start slightly above viewport */
+  width: 30px;
+  height: 30px;
+  background: url('projectimages/leafs.png') no-repeat center/contain;
+  opacity: 0.8;
+  animation: fall 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Left side leaves positions and delays */
+.leaf.left:nth-child(1) {
+  left: 5vw;
+  animation-delay: 0s;
+}
+.leaf.left:nth-child(2) {
+  left: 12vw;
+  animation-delay: 2.5s;
+}
+.leaf.left:nth-child(3) {
+  left: 18vw;
+  animation-delay: 5s;
+}
+
+/* Right side leaves positions and delays */
+.leaf.right:nth-child(4) {
+  right: 5vw;
+  animation-delay: 1.5s;
+}
+.leaf.right:nth-child(5) {
+  right: 12vw;
+  animation-delay: 4s;
+}
+.leaf.right:nth-child(6) {
+  right: 18vw;
+  animation-delay: 6.5s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* Responsive Styles */
 @media (max-width: 480px) {
-  .container {
+  .page-wrapper {
     padding: 20px;
     gap: 20px;
   }
@@ -311,7 +336,7 @@ h1 {
 }
 
 @media (min-width: 1025px) {
-  .container {
+  .page-wrapper {
     padding: 40px 60px;
   }
   h1 {
@@ -336,3 +361,4 @@ h1 {
     padding: 15px 30px;
   }
 }
+

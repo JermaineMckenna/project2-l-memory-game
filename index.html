@@ -2,118 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BrainMatch: Memory Challenge</title>
-
-  <link rel="icon" type="image/png" href="./favicon/memory.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Game</title>
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    .instructions-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
-    .instructions-popup {
-      display: none;
-      position: absolute;
-      top: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: white;
-      color: darkolivegreen;
-      padding: 20px;
-      border-radius: 10px;
-      width: 280px;
-      z-index: 20;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      text-align: left;
-    }
-
-    .instructions-popup.active {
-      display: block;
-    }
-  </style>
 </head>
 <body>
+  <h1>Jermaine McKenna | Memory Game</h1>
   <div class="page-wrapper">
+     
     <header class="page-header">
-      <h2>Jermaine McKenna | BrainMatch</h2>
+    <header class="page-header">
+    <div class="stats">
+    <div class="stat-item">🎯 Moves: <span id="moveCounter">0</span></div>
+    <div class="stat-item">⭐ Stars: <span id="starRating">★★★</span></div>
+    <div class="stat-item">⏱ Time: <span id="timer">0</span> seconds</div>
+    </div>
     </header>
-
-    <div class="container">
-      <h1>Memory Game</h1>
-      <p id="timer-display">⏱ Time: <span id="timer">0</span>s</p>
-
-      <!-- Instructions Button with Click Toggle -->
-      <div class="instructions-wrapper">
-        <button id="instructionsBtn">Instructions</button>
-        <div class="instructions-popup" id="instructionsPopup">
-          <h3>How to Play BrainMatch</h3>
-          <ul>
-            <li>🎯 Match all the pairs of cards.</li>
-            <li>🂿 Click two cards to flip them.</li>
-            <li>🔁 If they match, they stay flipped. If not, they flip back.</li>
-            <li>🧠 Use your memory to remember card positions.</li>
-            <li>⏱ Timer starts with your first move.</li>
-            <li>🎮 Complete the game quickly with few mistakes.</li>
-            <li>🔄 Click "Reset Game" to start over.</li>
-            <li>🔊 Use the sound button to toggle audio.</li>
-          </ul>
-          <p>Good luck and have fun!</p>
-          <button id="playGameBtn">Play Game</button>
-        </div>
-      </div>
-
-      <!-- Game Grid -->
-      <div class="game"></div>
-
-      <!-- Game Controls -->
-      <button class="reset" onclick="playResetSoundAndReload();">Reset Game</button>
-      <button id="mute-btn">🔊 Sound On</button>
+    </header>
+    <!-- Falling Leafs Container -->
+    <div class="falling-leaves">
+    <div class="leaf left"></div>
+    <div class="leaf left"></div>
+    <div class="leaf left"></div>
+    <div class="leaf right"></div>
+    <div class="leaf right"></div>
+    <div class="leaf right"></div>
     </div>
-
-    <!-- Left Falling Leaves -->
-    <div class="falling-leaves left-leaves">
-      <img src="projectimages/f34399a3cc3993d82e29ab4e0787dd8d.png" class="leaf" alt="Leaf" />
-      <img src="projectimages/f34399a3cc3993d82e29ab4e0787dd8d.png" class="leaf" alt="Leaf" />
-    </div>
-    <div class="leaves left">
-      <img src="projectimages/f34399a3cc3993d82e29ab4e0787dd8d.png" class="leaf" />
-      <img src="projectimages/f34399a3cc3993d82e29ab4e0787dd8d.png" class="leaf delay1" />
-    </div>
-
-    <!-- Right Falling Leaves -->
-    <div class="leaf-wrapper">
-      <div class="falling-leaves right-leaves">
-        <img src="projectimages/f34399a3cc3993d82e29ab4e0787dd8d.png" class="leaf" />
-        <img src="projectimages/f34399a3cc3993d82e29ab4e0787dd8d.png" class="leaf" />
+    <div class="instructions-wrapper">
+      <button id="instructionsBtn">Instructions</button>
+      <div class="instructions-popup hidden" id="instructionsPopup">
+        <h3>How to Play BrainMatch</h3>
+        <ul>
+          <li>🎯 Match all the pairs of cards.</li>
+          <li>🂿 Click two cards to flip them.</li>
+          <li>🔁 If they match, they stay flipped. If not, they flip back.</li>
+          <li>🧠 Use your memory to remember card positions.</li>
+          <li>⏱ Timer starts with your first move.</li>
+          <li>🎮 Complete the game quickly with few mistakes.</li>
+          <li>🔄 Click "Reset Game" to start over.</li>
+          <li>🔊 Use the sound button to toggle audio.</li>
+        </ul>
+        <p>Good luck and have fun!</p>
+        <button id="playGameBtn">Play Game</button>
       </div>
     </div>
 
-    <footer class="page-footer">
-      <p>&copy; 2025 Jermaine McKenna. All rights reserved.</p>
-      <p>
-        <a href="https://github.com/JermaineMckenna" target="_blank">GitHub</a> |
-        <a href="https://www.linkedin.com/in/JermaineMcKenna" target="_blank">LinkedIn</a>
-      </p>
-    </footer>
-  </div>
+    <div class="game"></div>
 
-  <script src="script.js" defer></script>
-  <script>
-    // Toggle Instructions popup on button click
-    const instructionsBtn = document.getElementById('instructionsBtn');
-    const instructionsPopup = document.getElementById('instructionsPopup');
+    <button class="reset" onclick="playResetSoundAndReload()">Reset Game</button>
+    <button id="mute-btn">🔊 Sound On</button>
+  </div> 
 
-    instructionsBtn.addEventListener('click', () => {
-      instructionsPopup.classList.toggle('active');
-    });
+  <footer class="page-footer">
+    Jermaine McKenna &copy; 2025
+  </footer>
 
-    // Optional: close popup when "Play Game" button is clicked
-    document.getElementById('playGameBtn').addEventListener('click', () => {
-      instructionsPopup.classList.remove('active');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
+
