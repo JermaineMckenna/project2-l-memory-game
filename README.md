@@ -78,7 +78,37 @@ The Game title is at the head of the game and clearly shows the creator of the g
 
 ![gamtitle](projectimages/gametitle.jpg)
 
-Game Completion - 
+Game Completion MSG - 
+
+Once the user has completed all the levels within the game, a popup message will appear at the top of the screen notifying the user all levels are now completed and they have finished the game.
+
+![completionmsg](projectimages/completionmsg.jpg)
+
+## ✈️ Technologies Used
+
+The following project was made and created from the following languages:
+
+-HTML5
+-CSS3
+-JavaScript
+
+[Google Fonts](https://fonts.google.com/) was used to browse, source and select the right font needed for the memory game.
+
+[Git](https://git-scm.com/) and [GitHub](https://github.com/) was both used for version control and to make repositories.
+
+## 🗣️ Credits
+
+The [CSS documentation at mdn web docs](https://developer.mozilla.org/en-US/docs/Web/CSS) was mainly used a key reference point, when stying the memory game using CSS features.
+
+When creating the README file I used the website [makeareadme.com](https://www.makeareadme.com/) aswell as using a [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) found on GitHub.
+
+
+
+
+
+
+
+
 
 
 
