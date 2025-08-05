@@ -102,6 +102,25 @@ The [CSS documentation at mdn web docs](https://developer.mozilla.org/en-US/docs
 
 When creating the README file I used the website [makeareadme.com](https://www.makeareadme.com/) aswell as using a [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) found on GitHub.
 
+To create the features applied on the game I had sourced various videos on youtube that helped breakdown JavaScripts features and animations which I applied to my code.
+
+[this blog on elated.com](https://www.elated.com/javascript-timers-with-settimeout-and-setinterval/) did help in understanding and applying the games timer.
+
+When deciding on a game layout and design, I had already had a good idea of what i wanted but after looking online I went with a square/card layout which was help chosen from [helpful games](https://www.helpfulgames.com/subjects/brain-training/memory.html)
+
+When trying to apply the cards correctly within the game i used [web design](https://webdesign.tutsplus.com/how-to-build-flexible-modal-dialogs-with-html-css-and-javascript--cms-33500t) in helping me apply the right modal.
+
+For Java Animations and understanding and inputting them correctly within a file I used [this site](https://css-tricks.com/getting-deep-into-shadows/).
+
+To source the back-ground image used within the main base of the game I used [unsplash backgrounds](https://unsplash.com/backgrounds).
+
+---
+
+## 🧪 Testing 
+
+Bugs - 
+
+
 
 
 
