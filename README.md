@@ -137,13 +137,38 @@ This passed with no errors found.
 
 ---
 
-HTML code validation
+HTML code validation.
 
 I used the [W3C Markup validation service](https://validator.w3.org/) to check the validity of my HTML. 
 
 From this check it highlighted a few info markers and one key error.
 ![htmlerrors](projectimages/htmlerrors.jpg)
 
+Since went back to the index.html file and identified the error code proplem fixed and checked code against validator, now showing no errors.
+
+![htmlfixed](projectimages/htmlcodefixed.jpg)
+
+---
+
+JavaScript code validation.
+
+For testing the JS code I used [JS hint JavaScript validation service](https://jshint.com/)
+
+No errors were found within the file.
+
+![JSvalidator](projectimages/JSvalidator.jpg)
+
+---
+
+Lighthouse testing.
+
+The initial lighthouse test on the memory game page showed average scores for Accesibilty and SEO, but what was very worrying was the performance result.
+
+![lighthouseresults](projectimages/lighthousetest1.jpg)
+
+From the report generated from the lighthouse test I was able to identify what the main source of the problem was which was causing the performance issues. The main issue was that my background image in my game design had to be compressed and converted to a different format in order for to game to perform to its best ability. This change was made.
+
+![lighthouseresults2](projectimages/)
 
 
 

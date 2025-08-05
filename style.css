@@ -261,7 +261,7 @@ h1 {
   top: -50px;             /* Start slightly above viewport */
   width: 30px;
   height: 30px;
-  background: url('projectimages/leafs.png') no-repeat center/contain;
+  background: url('projectimages/leafs2.webp') no-repeat center/contain;
   opacity: 0.8;
   animation: fall 8s linear infinite;
   pointer-events: none;

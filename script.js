@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const flipSound = new Audio('audio/flip.wav');
 const matchSound = new Audio('audio/match.wav');
 const resetSound = new Audio('audio/reset.wav');
