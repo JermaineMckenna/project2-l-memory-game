@@ -169,7 +169,7 @@ function createBoard(level) {
                 level++;
                 createBoard(level);
               } else {
-                alert(`🎉 All levels complete! Final Time: ${time}s`);
+                alert(`🎉 Congratulations! All levels complete! Final Time: ${time}s`);
               }
             }, 600);
           }

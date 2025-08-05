@@ -56,6 +56,31 @@ The instructions modal/popup sits on top of the game and is clear and visible to
 
 Game Screen - 
 
+The Game screen is essentialy the most important part of the website as this is where everything is happening, it contains all the features necessary to play and complete the game. As seen all features are fully visible on the game.
+
+![gamehomescreen](projectimages/gamehomescreen.jpg)
+
+Game Cards - 
+
+The Game cards is where the games magic happens, it's what user click and flip over in order to play and complete the game. The game begins with a certain amount of cards and then the further progress the user makes in completing levels the amount of cards increase to every level completed.
+
+![cardscreen](projectimages/cardsscreen.jpg)
+
+Game Buttons - 
+
+The memory game has various buttons within it, that do different functions. Inside the instructions popup at the very end after the final instruction is a play game button, this is to be clicked once the user has read all the games details and is ready to start playing. There is a reset game button if the user wants to start from the very beggining also there is a sound off button for if the user wants to play the game with no sound effects from the page.
+
+![gamebuttons](projectimages/gamebuttons.jpg)
+
+Game Title - 
+
+The Game title is at the head of the game and clearly shows the creator of the game and the type of game the user is playing.
+
+![gamtitle](projectimages/gametitle.jpg)
+
+Game Completion - 
+
+
 
 
 
