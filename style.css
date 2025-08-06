@@ -343,6 +343,8 @@ h1 {
     font-size: 3em;
   }
   .game {
+    display: grid;
+    gap: 10px;
     grid-template-columns: repeat(4, 100px);
   }
   .item {
