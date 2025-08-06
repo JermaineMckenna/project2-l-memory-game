@@ -345,7 +345,7 @@ h1 {
   .game {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(4, 1fr);
   }
   .item {
     width: 100px;
