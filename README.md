@@ -84,7 +84,7 @@ Once the user has completed all the levels within the game, a popup message will
 
 ![completionmsg](projectimages/completionmsg.jpg)
 
-## ✈️ Technologies Used
+## 🧰 Technologies Used
 
 The following project was made and created from the following languages:
 
@@ -168,8 +168,17 @@ The initial lighthouse test on the memory game page showed average scores for Ac
 
 From the report generated from the lighthouse test I was able to identify what the main source of the problem was which was causing the performance issues. The main issue was that my background image in my game design had to be compressed and converted to a different format in order for to game to perform to its best ability. This change was made.
 
-![lighthouseresults2](projectimages/)
+![lighthouseresults2](projectimages/up2datevalid.jpg)
 
+---
+
+Manual testing 
+
+## ✈️ Deployment
+
+The Memory game was developed & created using Visual Studio Code, commited to Git and pushed to GitHub using the terminal & source control in VScode.
+
+The final live version of the site is hosted on GitPages
 
 
 
