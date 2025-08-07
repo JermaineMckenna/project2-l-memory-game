@@ -301,13 +301,15 @@ h1 {
   justify-content: center;
   width: 100%;
   margin: 0 auto;
+  max-width: 440px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 /* Mobile: 2 cards per row */
 @media (max-width: 480px) {
   .game {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 280px; /* 2 cards * 100px + gap */
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 300px; /* 2 cards * 100px + gap */
   }
 }
 
@@ -346,6 +348,7 @@ h1 {
   .item {
     width: 100%;
     aspect-ratio: 1 / 1;
+    height: 60px;
   }
 
   .front,
@@ -380,6 +383,11 @@ h1 {
   .item {
     width: 100%;
     aspect-ratio: 1 / 1;
+  }
+
+  .card .back,
+  .card .front {
+    font-size: 1.5em;
   }
 
   .front,
