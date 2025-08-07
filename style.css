@@ -293,7 +293,40 @@ h1 {
   }
 }
 
-/* Responsive Styles */
+/* Base Game Grid */
+.game {
+  display: grid;
+  gap: clamp(6px, 2vw, 12px);
+  perspective: 1000px;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Mobile: 2 cards per row */
+@media (max-width: 480px) {
+  .game {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 280px; /* 2 cards * 100px + gap */
+  }
+}
+
+/* Tablet: 4 cards per row */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .game {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 440px;
+  }
+}
+
+/* Desktop: 4 cards per row */
+@media (min-width: 1025px) {
+  .game {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 440px;
+  }
+}
+
 @media (max-width: 480px) {
   .page-wrapper {
     padding: 20px;
@@ -302,23 +335,12 @@ h1 {
     overflow-x: hidden;
   }
 
-  @media (max-width: 480px) {
-    .game {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
   .page-header {
     margin-bottom: 40px;
   }
 
   h1 {
     font-size: 2em;
-  }
-
-  .game {
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-    max-width: 100%;
   }
 
   .item {
