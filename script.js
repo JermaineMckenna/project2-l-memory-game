@@ -8,7 +8,6 @@ const wrongSound = new Audio('audio/wrong.wav');
 let soundMuted = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mute button toggle
   document.getElementById('mute-btn').addEventListener('click', () => {
     soundMuted = !soundMuted;
     const allSounds = [flipSound, matchSound, resetSound, winSound, wrongSound];
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('mute-btn').textContent = soundMuted ? '🔇 Sound Off' : '🔊 Sound On';
   });
 
-  // Instructions popup toggle
   const instructionsBtn = document.getElementById("instructionsBtn");
   const instructionsPopup = document.getElementById("instructionsPopup");
   const playGameBtn = document.getElementById("playGameBtn");
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     instructionsPopup.classList.add("hidden");
   });
 
-  // Hide popup if clicking outside
   window.addEventListener("click", e => {
     if (
       !instructionsPopup.classList.contains("hidden") &&
@@ -41,11 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Initialize game
   createBoard(level);
 });
 
-// Reset & reload game with sound
 function playResetSoundAndReload() {
   resetSound.currentTime = 0;
   resetSound.play();
@@ -96,6 +91,13 @@ function getEmojisForLevel(level) {
   return allEmojis.slice(0, pairs);
 }
 
+function getColumnsForCurrentScreen() {
+  const width = window.innerWidth;
+  if (width <= 480) return 3;
+  if (width <= 1024) return 4;
+  return 4;
+}
+
 function createBoard(level) {
   const gameContainer = document.querySelector('.game');
   gameContainer.innerHTML = '';
@@ -106,7 +108,6 @@ function createBoard(level) {
   clearInterval(timer);
   document.getElementById('timer').innerText = time;
 
-  // RESET moves and star rating
   moves = 0;
   moveCounter.textContent = moves;
   starRating.textContent = '★★★';
@@ -181,9 +182,9 @@ function createBoard(level) {
     gameContainer.appendChild(box);
   }
 
-  // ➕ NEW: Add hidden filler items to keep the grid balanced
+  // Add filler items to keep the grid balanced
   const cardCount = shuffled.length;
-  const columns = getComputedStyle(gameContainer).gridTemplateColumns.split(' ').length;
+  const columns = getColumnsForCurrentScreen();
   const remainder = cardCount % columns;
   if (remainder !== 0) {
     const fillersNeeded = columns - remainder;
