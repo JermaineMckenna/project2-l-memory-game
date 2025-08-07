@@ -180,4 +180,17 @@ function createBoard(level) {
 
     gameContainer.appendChild(box);
   }
+
+  // ➕ NEW: Add hidden filler items to keep the grid balanced
+  const cardCount = shuffled.length;
+  const columns = getComputedStyle(gameContainer).gridTemplateColumns.split(' ').length;
+  const remainder = cardCount % columns;
+  if (remainder !== 0) {
+    const fillersNeeded = columns - remainder;
+    for (let i = 0; i < fillersNeeded; i++) {
+      const filler = document.createElement('div');
+      filler.className = 'item hidden';
+      gameContainer.appendChild(filler);
+    }
+  }
 }
