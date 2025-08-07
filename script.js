@@ -92,9 +92,6 @@ function getEmojisForLevel(level) {
 }
 
 function getColumnsForCurrentScreen() {
-  const width = window.innerWidth;
-  if (width <= 480) return 3;
-  if (width <= 1024) return 4;
   return 4;
 }
 
