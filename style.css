@@ -311,21 +311,34 @@ h1 {
   .page-wrapper {
     padding: 20px;
     gap: 20px;
+    max-width: 100%;
+    overflow-x: hidden;
   }
+
   .page-header {
     margin-bottom: 40px;
   }
+
   h1 {
     font-size: 2em;
   }
+
+  .game {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(3, 1fr); /* Adjust to 2 if 3 is too tight */
+  }
+
   .item {
     width: 60px;
     height: 60px;
   }
+
   .front,
   .back {
     font-size: 1.8em;
   }
+
   .reset,
   #mute-btn,
   #instructionsBtn,
@@ -335,26 +348,66 @@ h1 {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 481px) and (max-width: 1024px) {
   .page-wrapper {
-    padding: 40px 60px;
+    padding: 30px;
+    gap: 30px;
   }
+
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
   }
+
   .game {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .item {
+    width: 80px;
+    height: 80px;
+  }
+
+  .front,
+  .back {
+    font-size: 2.2em;
+  }
+
+  .reset,
+  #mute-btn,
+  #instructionsBtn,
+  #playGameBtn {
+    font-size: 1.2em;
+    padding: 12px 25px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .page-wrapper {
+    padding: 40px 60px;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  .game {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   .item {
     width: 100px;
     height: 100px;
   }
+
   .front,
   .back {
     font-size: 3em;
   }
+
   .reset,
   #mute-btn,
   #instructionsBtn,
@@ -363,4 +416,3 @@ h1 {
     padding: 15px 30px;
   }
 }
-
