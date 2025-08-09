@@ -3,33 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memory Game</title>
+  <meta name="description" content="Play Jermaine McKenna’s fun and challenging memory card game. Match emojis, beat levels, and test your brain!" />
+  <meta name="author" content="Jermaine McKenna" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jermainemckenna.github.io/project2-l-memory-game/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jermaine McKenna | Memory Game" />
+  <meta property="og:description" content="Match all emoji cards in this memory game. Challenge your brain and beat the clock!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jermainemckenna.github.io/project2-l-memory-game/" />
+  <meta property="og:image" content="projectimages/favicon.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jermaine McKenna | Memory Game" />
+  <meta name="twitter:description" content="A fun, fast-paced memory game. Flip cards, match pairs, and level up!" />
+  <meta name="twitter:image" content="projectimages/favicon.png" />
+
+  <title>Jermaine McKenna | Memory Game</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Preconnect for faster fetch -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" href="projectimages/backgroundim.webp" />
+
+  <!-- Inline minimal critical CSS -->
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    .page-header h1 {
+      font-size: 1.5rem; text-align: center;
+      background: #90ee90; margin: 0; padding: 10px;
+    }
+    .stats {
+      display: flex; justify-content: space-around;
+      padding: 10px; background: rgba(0,0,0,0.5); color: #fff;
+    }
+  </style>
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Jermaine McKenna | Memory Game</h1>
-  <div class="page-wrapper">
-     
-    <header class="page-header">
-    <div class="stats">
-    <div class="stat-item">🎯 Moves: <span id="moveCounter">0</span></div>
-    <div class="stat-item">⭐ Stars: <span id="starRating">★★★</span></div>
-    <div class="stat-item">⏱ Time: <span id="timer">0</span> seconds</div>
+  <header class="page-header">
+    <h1>Jermaine McKenna | Memory Game</h1>
+  </header>
+
+  <main class="page-wrapper">
+    <!-- Stats -->
+    <section class="stats" aria-label="Game Stats">
+      <div class="stat-item">🎯 Moves: <span id="moveCounter">0</span></div>
+      <div class="stat-item">⭐ Stars: <span id="starRating">★★★</span></div>
+      <div class="stat-item">⏱ Time: <span id="timer">0</span> seconds</div>
+    </section>
+
+    <!-- Falling Leaves Decoration -->
+    <div class="falling-leaves" aria-hidden="true">
+      <div class="leaf left"></div>
+      <div class="leaf left"></div>
+      <div class="leaf left"></div>
+      <div class="leaf right"></div>
+      <div class="leaf right"></div>
+      <div class="leaf right"></div>
     </div>
-    </header>
-    <!-- Falling Leafs Container -->
-    <div class="falling-leaves">
-    <div class="leaf left"></div>
-    <div class="leaf left"></div>
-    <div class="leaf left"></div>
-    <div class="leaf right"></div>
-    <div class="leaf right"></div>
-    <div class="leaf right"></div>
-    </div>
-    <div class="instructions-wrapper">
-      <button id="instructionsBtn">Instructions</button>
-      <div class="instructions-popup hidden" id="instructionsPopup">
-        <h3>How to Play BrainMatch</h3>
+
+    <!-- Instructions -->
+    <section class="instructions-wrapper">
+      <button id="instructionsBtn" aria-label="Show Instructions">Instructions</button>
+      <div class="instructions-popup hidden" id="instructionsPopup" role="dialog" aria-labelledby="instructionsBtn">
+        <h2>How to Play BrainMatch</h2>
         <ul>
           <li>🎯 Match all the pairs of cards.</li>
           <li>🂿 Click two cards to flip them.</li>
@@ -43,19 +88,24 @@
         <p>Good luck and have fun!</p>
         <button id="playGameBtn">Play Game</button>
       </div>
-    </div>
+    </section>
 
-    <div class="game"></div>
+    <!-- Game Board -->
+    <section class="game" aria-label="Game Board"></section>
 
-    <button class="reset" onclick="playResetSoundAndReload()">Reset Game</button>
-    <button id="mute-btn">🔊 Sound On</button>
-  </div> 
+    <!-- Controls -->
+    <section class="controls">
+      <button class="reset" onclick="playResetSoundAndReload()" aria-label="Reset Game">🔄 Reset Game</button>
+      <button id="mute-btn" aria-label="Toggle Sound">🔊 Sound On</button>
+    </section>
+  </main>
 
   <footer class="page-footer">
-    Jermaine McKenna &copy; 2025
+    <p>Jermaine McKenna &copy; 2025</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Main script deferred -->
+  <script src="script.js" defer></script>
 </body>
 </html>
 

@@ -6,6 +6,12 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Smooth font rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   display: flex;
   justify-content: flex-start;
@@ -28,13 +34,13 @@ body {
   align-items: center;
   gap: 30px;
   padding: 40px 60px;
-  box-sizing: border-box;
   border-radius: 12px;
   z-index: 2;
   background: url("projectimages/backgroundim.webp") no-repeat center center;
   background-size: cover;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   position: relative;
+  content-visibility: auto; /* ✅ Performance: only render visible area */
 }
 
 /* Background Overlay */
@@ -49,7 +55,6 @@ body {
   z-index: 0;
 }
 
-/* Ensure all children sit above overlay */
 .page-wrapper > * {
   position: relative;
   z-index: 1;
@@ -100,7 +105,6 @@ body {
 h1 {
   font-size: 3em;
   color: aliceblue;
-  text-transform: none;
   letter-spacing: 0.1em;
   text-align: center;
 }
@@ -139,7 +143,7 @@ h1 {
   justify-content: center;
   width: 100%;
   margin: 0 auto;
-  max-width: 440px; /* Ensures even layout on desktop (4x cards) */
+  max-width: 440px;
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -270,9 +274,11 @@ h1 {
   width: 30px;
   height: 30px;
   background: url('projectimages/leafs2.webp') no-repeat center/contain;
+  background-size: contain;
   opacity: 0.8;
   animation: fall 8s linear infinite;
   pointer-events: none;
+  will-change: transform, opacity; /* ✅ Performance */
 }
 
 .leaf.left:nth-child(1) { left: 5vw; animation-delay: 0s; }
@@ -293,42 +299,7 @@ h1 {
   }
 }
 
-/* Base Game Grid */
-.game {
-  display: grid;
-  gap: clamp(6px, 2vw, 12px);
-  perspective: 1000px;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-  max-width: 440px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
 /* Mobile: 2 cards per row */
-@media (max-width: 480px) {
-  .game {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 300px; /* 2 cards * 100px + gap */
-  }
-}
-
-/* Tablet: 4 cards per row */
-@media (min-width: 481px) and (max-width: 1024px) {
-  .game {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 440px;
-  }
-}
-
-/* Desktop: 4 cards per row */
-@media (min-width: 1025px) {
-  .game {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 440px;
-  }
-}
-
 @media (max-width: 480px) {
   .page-wrapper {
     padding: 20px;
@@ -336,102 +307,39 @@ h1 {
     max-width: 100%;
     overflow-x: hidden;
   }
-
   .page-header {
     margin-bottom: 40px;
   }
-
   h1 {
     font-size: 2em;
   }
-
-  .item {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    height: 60px;
-  }
-
-  .front,
-  .back {
-    font-size: 1.8em;
-  }
-
-  .reset,
-  #mute-btn,
-  #instructionsBtn,
-  #playGameBtn {
+  .item { height: 60px; }
+  .front, .back { font-size: 1.8em; }
+  .reset, #mute-btn, #instructionsBtn, #playGameBtn {
     font-size: 1em;
     padding: 10px 20px;
   }
 }
 
+/* Tablet */
 @media (min-width: 481px) and (max-width: 1024px) {
-  .page-wrapper {
-    padding: 30px;
-    gap: 30px;
-  }
-
-  h1 {
-    font-size: 2.5em;
-  }
-
-  .game {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    max-width: 400px;
-  }
-
-  .item {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-  }
-
-  .card .back,
-  .card .front {
-    font-size: 1.5em;
-  }
-
-  .front,
-  .back {
-    font-size: 2.2em;
-  }
-
-  .reset,
-  #mute-btn,
-  #instructionsBtn,
-  #playGameBtn {
+  .page-wrapper { padding: 30px; gap: 30px; }
+  h1 { font-size: 2.5em; }
+  .game { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); max-width: 400px; }
+  .front, .back { font-size: 2.2em; }
+  .reset, #mute-btn, #instructionsBtn, #playGameBtn {
     font-size: 1.2em;
     padding: 12px 25px;
   }
 }
 
+/* Desktop */
 @media (min-width: 1025px) {
-  .page-wrapper {
-    padding: 40px 60px;
-  }
-
-  h1 {
-    font-size: 3em;
-  }
-
-  .game {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    max-width: 440px;
-  }
-
-  .item {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-  }
-
-  .front,
-  .back {
-    font-size: 3em;
-  }
-
-  .reset,
-  #mute-btn,
-  #instructionsBtn,
-  #playGameBtn {
+  .page-wrapper { padding: 40px 60px; }
+  h1 { font-size: 3em; }
+  .game { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); max-width: 440px; }
+  .front, .back { font-size: 3em; }
+  .reset, #mute-btn, #instructionsBtn, #playGameBtn {
     font-size: 1.5em;
     padding: 15px 30px;
   }
