@@ -266,27 +266,28 @@ h1 {
   pointer-events: none;
   overflow: hidden;
   z-index: 10;
+  transform: translateZ(0); /* ✅ Prevents iOS freeze */
 }
 
 .leaf {
   position: absolute;
-  top: -50px;
+  top: -60px; /* Slightly more above */
   width: 30px;
   height: 30px;
   background: url('projectimages/leafs2.webp') no-repeat center/contain;
-  background-size: contain;
   opacity: 0.8;
   animation: fall 8s linear infinite;
   pointer-events: none;
-  will-change: transform, opacity; /* ✅ Performance */
+  will-change: transform, opacity;
 }
 
-.leaf.left:nth-child(1) { left: 5vw; animation-delay: 0s; }
-.leaf.left:nth-child(2) { left: 12vw; animation-delay: 2.5s; }
-.leaf.left:nth-child(3) { left: 18vw; animation-delay: 5s; }
-.leaf.right:nth-child(4) { right: 5vw; animation-delay: 1.5s; }
-.leaf.right:nth-child(5) { right: 12vw; animation-delay: 4s; }
-.leaf.right:nth-child(6) { right: 18vw; animation-delay: 6.5s; }
+/* ✅ Use nth-of-type so it only counts .leaf elements */
+.leaf.left:nth-of-type(1) { left: 5vw; animation-delay: 0s; }
+.leaf.left:nth-of-type(2) { left: 12vw; animation-delay: 2.5s; }
+.leaf.left:nth-of-type(3) { left: 18vw; animation-delay: 5s; }
+.leaf.right:nth-of-type(4) { right: 5vw; animation-delay: 1.5s; }
+.leaf.right:nth-of-type(5) { right: 12vw; animation-delay: 4s; }
+.leaf.right:nth-of-type(6) { right: 18vw; animation-delay: 6.5s; }
 
 @keyframes fall {
   0% {

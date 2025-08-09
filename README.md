@@ -174,7 +174,7 @@ From the report generated from the lighthouse test I was able to identify what t
 
 Manual testing 
 
-![testinggame](projectimages/testingfeatures.pdf)
+![testinggame](projectimages/gamefeatures.jpg)
 
 ## ✈️ Deployment
 
