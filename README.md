@@ -174,11 +174,28 @@ From the report generated from the lighthouse test I was able to identify what t
 
 Manual testing 
 
+![testinggame](projectimages/testingfeatures.pdf)
+
 ## ✈️ Deployment
 
 The Memory game was developed & created using Visual Studio Code, commited to Git and pushed to GitHub using the terminal & source control in VScode.
 
-The final live version of the site is hosted on GitPages
+The final live version of the site is hosted on GitPages [here](https://jermainemckenna.github.io/project2-l-memory-game/) 
+
+This is accomplished by:
+
+1. Logging into GitHub
+2. Navigating to the repository you would like to create a site for
+3. At the top of the repositoryn clicking the settings icon
+4. On the left hand side of the settings page click the pages section
+5. Under source click the dropdown and select master branch
+6. Once the page refreshes there will be a link to your site, click this
+
+Detailed instructions on how to create a site on GitHub pages can be found [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+
+Finished Site - 
+
+
 
 
 
