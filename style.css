@@ -264,7 +264,7 @@ h1 {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
   z-index: 10;
 }
 
