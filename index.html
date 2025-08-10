@@ -13,20 +13,20 @@
   <meta property="og:description" content="Match all emoji cards in this memory game. Challenge your brain and beat the clock!" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jermainemckenna.github.io/project2-l-memory-game/" />
-  <meta property="og:image" content="projectimages/memory.png" />
+  <meta property="og:image" content="projectimages/favicon.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Jermaine McKenna | Memory Game" />
   <meta name="twitter:description" content="A fun, fast-paced memory game. Flip cards, match pairs, and level up!" />
-  <meta name="twitter:image" content="projectimages/memory.png" />
+  <meta name="twitter:image" content="projectimages/favicon.png" />
 
   <title>Jermaine McKenna | Memory Game</title>
-  <link rel="icon" href="projectimages/memory.png" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <!-- Preconnect for faster fetch -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 
   <!-- Preload LCP image -->
   <link rel="preload" as="image" href="projectimages/backgroundim.webp" />
@@ -82,7 +82,7 @@
 
     <!-- Controls -->
     <section class="controls">
-      <button id="reset-btn" aria-label="Reset Game">🔄 Reset Game</button>
+      <button class="reset" onclick="playResetSoundAndReload()" aria-label="Reset Game">🔄 Reset Game</button>
       <button id="mute-btn" aria-label="Toggle Sound">🔊 Sound On</button>
     </section>
   </main>
@@ -95,4 +95,3 @@
   <script src="script.js" defer></script>
 </body>
 </html>
-

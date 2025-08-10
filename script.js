@@ -38,17 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Delay game board creation to prevent mobile animation freeze
-  setTimeout(() => {
-    createBoard(level);
-  }, 200);
+  createBoard(level);
 });
 
 function playResetSoundAndReload() {
   resetSound.currentTime = 0;
   resetSound.play();
   setTimeout(() => {
-    createBoard(level); // Soft reset instead of full reload
+    window.location.reload();
   }, 300);
 }
 
@@ -89,36 +86,13 @@ function startTimer() {
 const allEmojis = ["☺️", "😇", "😍", "🙃", "😎", "👾", "😸", "🐜", "🎃", "👻", "🐶", "🍕", "🚀", "🦄", "🐸"];
 let level = 1;
 
-// Calculate pairs so total cards fit evenly into grid columns
-function getPairsForLevel(level) {
-  const columns = getColumnsForCurrentScreen();
-
-  // Limit pairs for first 2 levels on mobile
-  if (columns === 3 && level <= 2) {
-    return 3; // 3 pairs = 6 cards total on mobile, less crowded
-  }
-
-  let pairs = 2 + level * 2;
-  while ((pairs * 2) % columns !== 0) {
-    pairs++;
-  }
-  return pairs;
-}
-
 function getEmojisForLevel(level) {
-  const pairs = getPairsForLevel(level);
+  const pairs = 2 + level * 2;
   return allEmojis.slice(0, pairs);
 }
 
-// Dynamically choose columns based on screen width
 function getColumnsForCurrentScreen() {
-  if (window.innerWidth <= 480) {
-    return 3; // small phones
-  } else if (window.innerWidth <= 768) {
-    return 4; // tablets & large phones
-  } else {
-    return 6; // desktop
-  }
+  return 4;
 }
 
 function createBoard(level) {
@@ -205,7 +179,7 @@ function createBoard(level) {
     gameContainer.appendChild(box);
   }
 
-  // Add filler items to keep the grid balanced (optional now)
+  // Add filler items to keep the grid balanced
   const cardCount = shuffled.length;
   const columns = getColumnsForCurrentScreen();
   const remainder = cardCount % columns;
@@ -217,9 +191,7 @@ function createBoard(level) {
       gameContainer.appendChild(filler);
     }
   }
-
-  // Update CSS grid columns dynamically
-  gameContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 }
+
 
 
