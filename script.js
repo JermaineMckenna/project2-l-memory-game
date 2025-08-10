@@ -38,14 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  createBoard(level);
+  // Delay game board creation to prevent mobile animation freeze
+  setTimeout(() => {
+    createBoard(level);
+  }, 200);
 });
 
 function playResetSoundAndReload() {
   resetSound.currentTime = 0;
   resetSound.play();
   setTimeout(() => {
-    window.location.reload();
+    createBoard(level); // Soft reset instead of full reload
   }, 300);
 }
 
@@ -86,13 +89,30 @@ function startTimer() {
 const allEmojis = ["☺️", "😇", "😍", "🙃", "😎", "👾", "😸", "🐜", "🎃", "👻", "🐶", "🍕", "🚀", "🦄", "🐸"];
 let level = 1;
 
+// Calculate pairs so total cards fit evenly into grid columns
+function getPairsForLevel(level) {
+  const columns = getColumnsForCurrentScreen();
+  let pairs = 2 + level * 2;
+  while ((pairs * 2) % columns !== 0) {
+    pairs++;
+  }
+  return pairs;
+}
+
 function getEmojisForLevel(level) {
-  const pairs = 2 + level * 2;
+  const pairs = getPairsForLevel(level);
   return allEmojis.slice(0, pairs);
 }
 
+// Dynamically choose columns based on screen width
 function getColumnsForCurrentScreen() {
-  return 4;
+  if (window.innerWidth <= 480) {
+    return 3; // small phones
+  } else if (window.innerWidth <= 768) {
+    return 4; // tablets & large phones
+  } else {
+    return 6; // desktop
+  }
 }
 
 function createBoard(level) {
@@ -179,7 +199,7 @@ function createBoard(level) {
     gameContainer.appendChild(box);
   }
 
-  // Add filler items to keep the grid balanced
+  // Add filler items to keep the grid balanced (optional now)
   const cardCount = shuffled.length;
   const columns = getColumnsForCurrentScreen();
   const remainder = cardCount % columns;
@@ -191,4 +211,8 @@ function createBoard(level) {
       gameContainer.appendChild(filler);
     }
   }
+
+  // Update CSS grid columns dynamically
+  gameContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 }
+
