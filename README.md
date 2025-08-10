@@ -193,6 +193,10 @@ This is accomplished by:
 
 Detailed instructions on how to create a site on GitHub pages can be found [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 
+![fgscreen](projectimages/fgscreen1.jpg)
+
+![fgscreen2](projectimages/fgscreen2.jpg)
+
 Finished Site [here]()
 
 
