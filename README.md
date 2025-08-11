@@ -30,7 +30,8 @@ A user of the site wants to:
 
 ## 🪛 Wireframe 
 
-![wireframe](projectimages/wireframe.jpg)
+![wireframe2](projectimages/wireframe2.jpg)
+![wireframe3](projectimages/wireframe3.jpg)
 
 ---
 
