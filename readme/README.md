@@ -2,7 +2,7 @@
 ---
 BrainMatch is a browser-based card memory game designed to sharpen an indivduals memory and concentration skills. Users must flip and and match emoji pairs with a level challenging layout across five different modes. The memory game aims to improve cognitive function in a fun and rewarding way, by achieving this it is now suitable for users all ages who want to test and improve their memory while having fun.
 
-![memorygame](css/projectimages/screenshothomep.jpg)
+![memorygame](projectimages/screenshothomep.jpg)
 
 ---
 
@@ -30,8 +30,8 @@ A user of the site wants to:
 
 ## 🪛 Wireframe 
 
-![wireframe2](css/projectimages/wireframe2.jpg)
-![wireframe3](css/projectimages/wireframe3.jpg)
+![wireframe2](projectimages/wireframe2.jpg)
+![wireframe3](projectimages/wireframe3.jpg)
 
 ---
 
@@ -39,11 +39,11 @@ A user of the site wants to:
 
 The font Arial and Helvetica is what is used for the memory card game site. As one of the key traits of the website is simplicity but catchy at the same time, this font was chosen as it is clear and understandable for all types of users that wish to access the site and play the game. The font sans serif was also used as the fallback in case Arial and Helvetica are not accesible.
 
-![font](css/projectimages/fonts.jpg)
+![font](projectimages/fonts.jpg)
 
 The colour scheme used in the backgroud of the game is light green. The colour used for different texts in the game varies from a colour of white to different types of green. This type of variety is a good mixture in creativity but also goes well with the layout of the game and the approach went with.
 
-![gfont](css/projectimages/greenfonts.jpg)
+![gfont](projectimages/greenfonts.jpg)
 
 ---
 
@@ -53,37 +53,37 @@ Introduction/Instructions Modal -
 
 The instructions modal/popup sits on top of the game and is clear and visible to users when they are on the game page, once clicked the popup opens with clear instructions on how to play the game. Inside the popup descriptions on other features the game has it detailed clearly.
 
-![instructionsmodal](css/projectimages/instructions.jpg)
+![instructionsmodal](projectimages/instructions.jpg)
 
 Game Screen - 
 
 The Game screen is essentialy the most important part of the website as this is where everything is happening, it contains all the features necessary to play and complete the game. As seen all features are fully visible on the game.
 
-![gamehomescreen](css/projectimages/gamehomescreen.jpg)
+![gamehomescreen](projectimages/gamehomescreen.jpg)
 
 Game Cards - 
 
 The Game cards is where the games magic happens, it's what user click and flip over in order to play and complete the game. The game begins with a certain amount of cards and then the further progress the user makes in completing levels the amount of cards increase to every level completed.
 
-![cardscreen](css/projectimages/cardsscreen.jpg)
+![cardscreen](projectimages/cardsscreen.jpg)
 
 Game Buttons - 
 
 The memory game has various buttons within it, that do different functions. Inside the instructions popup at the very end after the final instruction is a play game button, this is to be clicked once the user has read all the games details and is ready to start playing. There is a reset game button if the user wants to start from the very beggining also there is a sound off button for if the user wants to play the game with no sound effects from the page.
 
-![gamebuttons](css/projectimages/gamebuttons.jpg)
+![gamebuttons](projectimages/gamebuttons.jpg)
 
 Game Title - 
 
 The Game title is at the head of the game and clearly shows the creator of the game and the type of game the user is playing.
 
-![gamtitle](css/projectimages/gametitle.jpg)
+![gamtitle](projectimages/gametitle.jpg)
 
 Game Completion MSG - 
 
 Once the user has completed all the levels within the game, a popup message will appear at the top of the screen notifying the user all levels are now completed and they have finished the game.
 
-![completionmsg](css/projectimages/completionmsg.jpg)
+![completionmsg](projectimages/completionmsg.jpg)
 
 ## 🧰 Technologies Used
 
@@ -134,7 +134,7 @@ I used the [W3C Markup validation service](https://jigsaw.w3.org/css-validator/#
 
 This passed with no errors found.
 
-![cssvalidator](css/projectimages/cssvalidator.jpg)
+![cssvalidator](projectimages/cssvalidator.jpg)
 
 ---
 
@@ -143,11 +143,11 @@ HTML code validation.
 I used the [W3C Markup validation service](https://validator.w3.org/) to check the validity of my HTML. 
 
 From this check it highlighted a few info markers and one key error.
-![htmlerrors](css/projectimages/htmlerrors.jpg)
+![htmlerrors](projectimages/htmlerrors.jpg)
 
 Since went back to the index.html file and identified the error code proplem fixed and checked code against validator, now showing no errors.
 
-![htmlfixed](css/projectimages/htmlcodefixed.jpg)
+![htmlfixed](projectimages/htmlcodefixed.jpg)
 
 ---
 
@@ -157,7 +157,7 @@ For testing the JS code I used [JS hint JavaScript validation service](https://j
 
 No errors were found within the file.
 
-![JSvalidator](css/projectimages/JSvalidator.jpg)
+![JSvalidator](projectimages/JSvalidator.jpg)
 
 ---
 
@@ -165,17 +165,17 @@ Lighthouse testing.
 
 The initial lighthouse test on the memory game page showed average scores for Accesibilty and SEO, but what was very worrying was the performance result.
 
-![lighthouseresults](css/projectimages/lighthousetest1.jpg)
+![lighthouseresults](projectimages/lighthousetest1.jpg)
 
 From the report generated from the lighthouse test I was able to identify what the main source of the problem was which was causing the performance issues. The main issue was that my background image in my game design had to be compressed and converted to a different format in order for to game to perform to its best ability. This change was made.
 
-![lighthouseresults2](css/projectimages/up2datevalid.jpg)
+![lighthouseresults2](projectimages/up2datevalid.jpg)
 
 ---
 
 Manual testing 
 
-![testinggame](css/projectimages/gamefeatures.jpg)
+![testinggame](projectimages/gamefeatures.jpg)
 
 ## ✈️ Deployment
 
@@ -194,9 +194,9 @@ This is accomplished by:
 
 Detailed instructions on how to create a site on GitHub pages can be found [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 
-![fgscreen](css/projectimages/fgscreen1.jpg)
+![fgscreen](projectimages/fgscreen1.jpg)
 
-![fgscreen2](css/projectimages/fgscreen2.jpg)
+![fgscreen2](projectimages/fgscreen2.jpg)
 
 Finished Site [here]()
 
