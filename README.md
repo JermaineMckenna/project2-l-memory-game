@@ -177,6 +177,9 @@ Manual testing
 
 ![testinggame](css/projectimages/gamefeatures.jpg)
 
+![testinggame](css/projectimages/newuserstory.jpg)
+![testinggame](css/projectimages/newuserstory2.jpg)
+
 ## ✈️ Deployment
 
 The Memory game was developed & created using Visual Studio Code, commited to Git and pushed to GitHub using the terminal & source control in VScode.
