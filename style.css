@@ -17,7 +17,8 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  background: lightgreen;
+  color: #ffffff;
+  background-color: lightgreen;
   overflow-x: hidden;
   text-align: center;
 }
@@ -103,7 +104,7 @@ body {
 
 h1 {
   font-size: 3em;
-  color: aliceblue;
+  color: #ffffff;
   letter-spacing: 0.1em;
   text-align: center;
 }
