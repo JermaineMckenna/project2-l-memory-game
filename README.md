@@ -105,6 +105,10 @@ When creating the README file I used the website [makeareadme.com](https://www.m
 
 To create the features applied on the game I had sourced various videos on youtube that helped breakdown JavaScripts features and animations which I applied to my code.
 
+[google docs](https://docs.google.com/document/u/0/) is what I used to create the tables to submit the testing.
+
+[This youtube video](https://www.youtube.com/watch?v=M0egyNvsN-Y) helped decide a final layout for the memory game and also helped with javascript animations/features.
+
 [this blog on elated.com](https://www.elated.com/javascript-timers-with-settimeout-and-setinterval/) did help in understanding and applying the games timer.
 
 When deciding on a game layout and design, I had already had a good idea of what i wanted but after looking online I went with a square/card layout which was help chosen from [helpful games](https://www.helpfulgames.com/subjects/brain-training/memory.html)
