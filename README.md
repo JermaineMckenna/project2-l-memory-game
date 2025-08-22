@@ -20,8 +20,9 @@ BrainMatch is a browser-based card memory game designed to sharpen an indivduals
 
 A user of the site wants to:
 
-- Understand how to play the game 
-- To flip over the cards in the hope of matching a pair.
+As a user i would like instructions on how to understand and play the game.
+
+As a user To flip over the cards in the hope of matching a pair.
 - Cards to flip back over if guessed incorrectly to keep game fair.
 - Matched cards to stay face-up to complete the level/game.
 - The game to complete and end once all levels are completed correctly.
@@ -180,6 +181,8 @@ From the report generated from the lighthouse test I was able to identify what t
 Manual testing 
 
 ![testinggame](projectimages/gamefeatures.jpg)
+![testinguserstory](projectimages/newuserstory.jpg)
+![testinguserstory](projectimages/newuserstory2.jpg)
 
 ## ✈️ Deployment
 
