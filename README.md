@@ -198,7 +198,7 @@ Detailed instructions on how to create a site on GitHub pages can be found [here
 
 ![fgscreen2](projectimages/fgscreen2.jpg)
 
-Finished Site [here]()
+Finished Site [click here](https://jermainemckenna.github.io/project2-l-memory-game/)
 
 
 
