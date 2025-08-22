@@ -38,8 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const resetBtn = document.getElementById('resetBtn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', playResetSoundAndReload);
+  }
+
   createBoard(level);
 });
+
 
 function playResetSoundAndReload() {
   resetSound.currentTime = 0;
@@ -95,6 +101,61 @@ function getColumnsForCurrentScreen() {
   return 4;
 }
 
+function handleBoxClick(box, gameEmojis) {
+  return function () {
+    if (box.classList.contains('boxOpen') || box.classList.contains('boxMatch')) return;
+
+    if (!hasStarted) {
+      startTimer();
+      hasStarted = true;
+    }
+
+    flipSound.currentTime = 0;
+    flipSound.play();
+    box.classList.add('boxOpen');
+
+    const openBoxes = document.querySelectorAll('.boxOpen');
+    if (openBoxes.length === 2) {
+      updateMoves();
+
+      setTimeout(() => {
+        const emoji1 = openBoxes[0].querySelector('.back').textContent;
+        const emoji2 = openBoxes[1].querySelector('.back').textContent;
+
+        if (emoji1 === emoji2) {
+          openBoxes[0].classList.add('boxMatch');
+          openBoxes[1].classList.add('boxMatch');
+          matchSound.currentTime = 0;
+          matchSound.play();
+        } else {
+          wrongSound.currentTime = 0;
+          wrongSound.play();
+        }
+
+        openBoxes[0].classList.remove('boxOpen');
+        openBoxes[1].classList.remove('boxOpen');
+
+        const matched = document.querySelectorAll('.boxMatch').length;
+        if (matched === gameEmojis.length) {
+          winSound.currentTime = 0;
+          winSound.play();
+          clearInterval(timer);
+
+          setTimeout(() => {
+            if (level < 5) {
+              alert(`✅ Level ${level} complete in ${time}s! Moving to Level ${level + 1}...`);
+              level++;
+              createBoard(level);
+            } else {
+              alert(`🎉 Congratulations! All levels complete! Final Time: ${time}s`);
+            }
+          }, 600);
+        }
+      }, 500);
+    }
+  };
+}
+
 function createBoard(level) {
   const gameContainer = document.querySelector('.game');
   gameContainer.innerHTML = '';
@@ -122,64 +183,11 @@ function createBoard(level) {
         <div class="back">${shuffled[i]}</div>
       </div>
     `;
-
-    box.onclick = function () {
-      if (this.classList.contains('boxOpen') || this.classList.contains('boxMatch')) return;
-
-      if (!hasStarted) {
-        startTimer();
-        hasStarted = true;
-      }
-
-      flipSound.currentTime = 0;
-      flipSound.play();
-      this.classList.add('boxOpen');
-
-      const openBoxes = document.querySelectorAll('.boxOpen');
-      if (openBoxes.length === 2) {
-        updateMoves();
-
-        setTimeout(() => {
-          const emoji1 = openBoxes[0].querySelector('.back').textContent;
-          const emoji2 = openBoxes[1].querySelector('.back').textContent;
-
-          if (emoji1 === emoji2) {
-            openBoxes[0].classList.add('boxMatch');
-            openBoxes[1].classList.add('boxMatch');
-            matchSound.currentTime = 0;
-            matchSound.play();
-          } else {
-            wrongSound.currentTime = 0;
-            wrongSound.play();
-          }
-
-          openBoxes[0].classList.remove('boxOpen');
-          openBoxes[1].classList.remove('boxOpen');
-
-          const matched = document.querySelectorAll('.boxMatch').length;
-          if (matched === gameEmojis.length) {
-            winSound.currentTime = 0;
-            winSound.play();
-            clearInterval(timer);
-
-            setTimeout(() => {
-              if (level < 5) {
-                alert(`✅ Level ${level} complete in ${time}s! Moving to Level ${level + 1}...`);
-                level++;
-                createBoard(level);
-              } else {
-                alert(`🎉 Congratulations! All levels complete! Final Time: ${time}s`);
-              }
-            }, 600);
-          }
-        }, 500);
-      }
-    };
-
+    box.addEventListener('click', handleBoxClick(box, gameEmojis));
     gameContainer.appendChild(box);
   }
 
-  // Add filler items to keep the grid balanced
+ 
   const cardCount = shuffled.length;
   const columns = getColumnsForCurrentScreen();
   const remainder = cardCount % columns;
@@ -192,6 +200,7 @@ function createBoard(level) {
     }
   }
 }
+
 
 
 
