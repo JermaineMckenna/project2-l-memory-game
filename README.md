@@ -18,14 +18,21 @@ BrainMatch is a browser-based card memory game designed to sharpen an indivduals
 
 ## 📖 User Stories
 
-A user of the site wants to:
-
 As a user i would like instructions on how to understand and play the game.
 
-As a user To flip over the cards in the hope of matching a pair.
-- Cards to flip back over if guessed incorrectly to keep game fair.
-- Matched cards to stay face-up to complete the level/game.
-- The game to complete and end once all levels are completed correctly.
+As a user i wouls like to be able to flip over the cards in the hope of matching a pair.
+
+As a user i would like cards to flip back over if guessed incorrectly to keep the game fair.
+
+As a user i would like matched cards to stay face-up.
+
+As a user i would like a notification once i have completed a level on the game.
+
+As a user i would like to know once i have completed all aspects of the game.
+
+As a frequent user i would like to be able to toggle the sound on & off.
+
+As a user i would like to be able to use the game on different devices.
 
 ---
 
@@ -128,8 +135,9 @@ Bugs -
 
 Experienced a bug on the next level and game completion pop up at the top of the game, the bug was through the level completion pop up which stated details of my github at the very top, just above the level completion message, this bug was showing at the end of every level and also once the game had been completed.
 
+Another big bug which was identified later on in the project was the type of javascript version i was using in my js.file. This was causing issues and erros within the project but once the issue was identified and corrected all issues were gone.
 
-
+Trailing slashes in the meta tags has brought up alot of errors when i put my html code through the validator, but once i had removed closing tags all errors was gone from the validator.
 
 Code Validation - 
 
