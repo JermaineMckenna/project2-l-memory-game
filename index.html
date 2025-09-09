@@ -8,14 +8,14 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://jermainemckenna.github.io/project2-l-memory-game/">
 
-  <!-- Open Graph -->
+  
   <meta property="og:title" content="Jermaine McKenna | Memory Game">
   <meta property="og:description" content="Match all emoji cards in this memory game. Challenge your brain and beat the clock!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jermainemckenna.github.io/project2-l-memory-game/">
   <meta property="og:image" content="projectimages/favicon.png">
 
-  <!-- Twitter Card -->
+  
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Jermaine McKenna | Memory Game">
   <meta name="twitter:description" content="A fun, fast-paced memory game. Flip cards, match pairs, and level up!">
@@ -39,15 +39,27 @@
     <h1>Jermaine McKenna | Memory Game</h1>
   </header>
 
+  <!--  player Name Input -->
+  <section id="player-setup">
+    <label for="playerName">Enter your name:</label>
+    <input type="text" id="playerName" placeholder="Your name here">
+    <button onclick="savePlayerName()">Save Name</button>
+  </section>
+
+  <!--  Welcome Message -->
+  <h2 id="welcomeMessage"></h2>
+
   <main class="page-wrapper">
     <!-- Stats -->
     <section class="stats" aria-label="Game Stats">
       <div class="stat-item">🎯 Moves: <span id="moveCounter">0</span></div>
       <div class="stat-item">⭐ Stars: <span id="starRating">★★★</span></div>
       <div class="stat-item">⏱ Time: <span id="timer">0</span> seconds</div>
+      <!--  Best Score -->
+      <div class="stat-item">🏆 Best Score: <span id="bestScore">None</span></div>
     </section>
 
-    <!-- Falling Leaves Decoration -->
+    
     <div class="falling-leaves" aria-hidden="true">
       <div class="leaf left"></div>
       <div class="leaf left"></div>

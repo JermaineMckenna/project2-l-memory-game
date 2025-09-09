@@ -43,9 +43,21 @@ document.addEventListener('DOMContentLoaded', () => {
     resetBtn.addEventListener('click', playResetSoundAndReload);
   }
 
+  
+  const savedName = localStorage.getItem("playerName");
+  if (savedName) {
+    displayPlayerName(savedName);
+  }
+
+  
+  const savedBestScore = localStorage.getItem("bestScore");
+  if (savedBestScore) {
+    bestScore = parseInt(savedBestScore);
+    document.getElementById("bestScore").textContent = bestScore + " moves";
+  }
+
   createBoard(level);
 });
-
 
 function playResetSoundAndReload() {
   resetSound.currentTime = 0;
@@ -58,6 +70,9 @@ function playResetSoundAndReload() {
 let moves = 0;
 const moveCounter = document.getElementById('moveCounter');
 const starRating = document.getElementById('starRating');
+
+// ✅ Best Score variable
+let bestScore = null;
 
 function updateMoves() {
   moves++;
@@ -141,6 +156,13 @@ function handleBoxClick(box, gameEmojis) {
           winSound.play();
           clearInterval(timer);
 
+          if (bestScore === null || moves < bestScore) {
+            bestScore = moves;
+            localStorage.setItem("bestScore", bestScore);
+            document.getElementById("bestScore").textContent = bestScore + " moves";
+            alert(`🏆 New Best Score! ${moves} moves`);
+          }
+
           setTimeout(() => {
             if (level < 5) {
               alert(`✅ Level ${level} complete in ${time}s! Moving to Level ${level + 1}...`);
@@ -187,7 +209,6 @@ function createBoard(level) {
     gameContainer.appendChild(box);
   }
 
- 
   const cardCount = shuffled.length;
   const columns = getColumnsForCurrentScreen();
   const remainder = cardCount % columns;
@@ -200,6 +221,33 @@ function createBoard(level) {
     }
   }
 }
+function savePlayerName() {
+  const nameInput = document.getElementById("playerName").value.trim();
+  if (nameInput === "") {
+    alert("Please enter your name!");
+    return;
+  }
+  localStorage.setItem("playerName", nameInput);
+  displayPlayerName(nameInput);
+}
+
+function displayPlayerName(name) {
+ 
+  const welcomeEl = document.getElementById("welcomeMessage");
+  if (welcomeEl) {
+    welcomeEl.textContent = "Welcome, " + name + "!";
+  }
+
+  let playerStat = document.getElementById("playerStat");
+  if (!playerStat) {
+    playerStat = document.createElement("div");
+    playerStat.className = "stat-item";
+    playerStat.id = "playerStat";
+    document.querySelector(".stats").prepend(playerStat);
+  }
+  playerStat.textContent = "👤 Player: " + name;
+}
+
 
 
 
