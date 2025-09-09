@@ -200,12 +200,19 @@ The final live version of the site is hosted on GitPages [here](https://jermaine
 
 This is accomplished by:
 
-1. Logging into GitHub
-2. Navigating to the repository you would like to create a site for
-3. At the top of the repositoryn clicking the settings icon
-4. On the left hand side of the settings page click the pages section
-5. Under source click the dropdown and select master branch
-6. Once the page refreshes there will be a link to your site, click this
+1. Log in to your GitHub account.
+
+2. Navigate to the repository you want to deploy.
+
+3. Click on the [Settings](https://github.com/settings) tab found at the top of the repository.
+
+4. In the left-hand menu, select [Pages](https://github.com/settings/pages).
+
+5. Under Source, open the dropdown and select the main or master branch.
+
+6. Click Save.
+
+7. After the page refreshes, a link to the live site will be provided under the GitHub Pages section.
 
 Detailed instructions on how to create a site on GitHub pages can be found [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 
