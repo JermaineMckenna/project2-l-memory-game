@@ -264,9 +264,9 @@ h1 {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  overflow: visible; /
+  overflow: visible;
   z-index: 10;
-  transform: translateZ(0); /
+  transform: translateZ(0);
 }
 
 .leaf {
@@ -274,21 +274,22 @@ h1 {
   top: -60px;
   width: 30px;
   height: 30px;
-  background: url('projectimages/leafs2.webp') no-repeat center/contain;
+  background: url("leafs2.webp") no-repeat center/contain;
   opacity: 0.8;
   animation: fall 8s linear infinite;
   pointer-events: none;
   will-change: transform, opacity;
 }
 
+/* left leaves */
+.leaf.left1 { left: 5vw; animation-delay: 0s; }
+.leaf.left2 { left: 12vw; animation-delay: 2.5s; }
+.leaf.left3 { left: 18vw; animation-delay: 5s; }
 
-.leaf.left:nth-of-type(1) { left: 5vw; animation-delay: 0s; }
-.leaf.left:nth-of-type(2) { left: 12vw; animation-delay: 2.5s; }
-.leaf.left:nth-of-type(3) { left: 18vw; animation-delay: 5s; }
-
-.leaf.right:nth-of-type(4) { right: 5vw; animation-delay: 0s; }
-.leaf.right:nth-of-type(5) { right: 12vw; animation-delay: 2s; }
-.leaf.right:nth-of-type(6) { right: 18vw; animation-delay: 4.5s; }
+/* right leaves */
+.leaf.right1 { right: 5vw; animation-delay: 0s; }
+.leaf.right2 { right: 12vw; animation-delay: 2s; }
+.leaf.right3 { right: 18vw; animation-delay: 4.5s; }
 
 @keyframes fall {
   0% {
