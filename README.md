@@ -9,6 +9,7 @@ BrainMatch is a browser-based card memory game designed to sharpen an indivduals
 ## 👨🏾‍💻 User Experience 
 
 - Create a card based game that gets the brain working, at the same time is fun to play.
+- Function that allows my score to be saved to keep track.
 - Clear instructions on how to play the game.
 - Responsiveness design so the game can be played on all types of devices.
 - The game increases in difficulty the more levels completed.
