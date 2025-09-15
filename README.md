@@ -113,17 +113,23 @@ When creating the README file I used the website [makeareadme.com](https://www.m
 
 To create the features applied on the game I had sourced various videos on youtube that helped breakdown JavaScripts features and animations which I applied to my code [click here](https://www.youtube.com/watch?v=M0egyNvsN-Y).
 
-[this blog on elated.com](https://www.elated.com/javascript-timers-with-settimeout-and-setinterval/) did help in understanding and applying the games timer.
+[This blog on elated.com](https://www.elated.com/javascript-timers-with-settimeout-and-setinterval/) helped in understanding timer codes.
+[This Javascript timer tutorial](https://www.youtube.com/shorts/e8XtDMQTUeI) was used to put together the countdown timer used in the game.
 
-When deciding on a game layout and design, I had already had a good idea of what i wanted but after looking online I went with a square/card layout which was help chosen from [helpful games](https://www.helpfulgames.com/subjects/brain-training/memory.html)
+When deciding on a game layout and design, I had already had a good idea of what i wanted but after looking online I went with a square/card layout. The game layout was put together with the help of a [memory game YT tutorial](https://www.youtube.com/shorts/7AohK1oXGic)
 
 When trying to apply the cards correctly within the game i used [web design](https://webdesign.tutsplus.com/how-to-build-flexible-modal-dialogs-with-html-css-and-javascript--cms-33500t) in helping me apply the right modal.
+
+For understanding local storage for using Javascript I used the [YT tutorial](https://www.youtube.com/shorts/uLyuuz91UfQ) this helped me get a good understanding of what was needed to be applied to the game.
+
 
 For Java Animations and understanding and inputting them correctly within a file I used [this site](https://css-tricks.com/getting-deep-into-shadows/).
 
 To build table for the features testing i used [google docs](https://docs.google.com/document/u/0/).
 
 To build the wireframes for the webpage [figma](https://www.figma.com/files/team/1520135412037779099/recents-and-sharing?fuid=1520135407288540892) was used.
+
+For the player name input used within local storage I used [this](https://www.youtube.com/watch?v=U693xrQKFy4) youtube tutorial to take information away which helped put together the final code for the function.
 
 To source the back-ground image used within the main base of the game I used [unsplash backgrounds](https://unsplash.com/backgrounds).
 
