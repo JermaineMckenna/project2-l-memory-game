@@ -199,9 +199,8 @@ Console Testing.
 
 Manual testing 
 
-![testinggame](projectimages/gamefeatures.jpg)
-![testinguserstory](projectimages/newuserstory.jpg)
-![testinguserstory](projectimages/newuserstory2.jpg)
+![testinguserstory](projectimages/newtfeatures1.jpg)
+![testinguserstory](projectimages/newtfeatures2.jpg)
 
 ## ✈️ Deployment
 
@@ -229,7 +228,9 @@ Detailed instructions on how to create a site on GitHub pages can be found [here
 
 ![fgscreen](projectimages/fgscreen1.jpg)
 
-![fgscreen2](projectimages/fgscreen2.jpg)
+![fgscreen3](projectimages/updatedrd.jpg)
+
+![fgscreen2](projectimages/updatedmg.jpg)
 
 Finished Site [click here](https://jermainemckenna.github.io/project2-l-memory-game/)
 
