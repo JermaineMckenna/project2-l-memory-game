@@ -186,6 +186,10 @@ From the report generated from the lighthouse test I was able to identify what t
 
 ---
 
+Console Testing.
+
+![ConsoleResults](projectimages/console.jpg)
+
 Manual testing 
 
 ![testinggame](projectimages/gamefeatures.jpg)
